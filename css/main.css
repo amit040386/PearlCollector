@@ -1,0 +1,386 @@
+* {
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    overflow: hidden;
+}
+.black-font-color {
+    color: #000 !important;
+}
+.game-section {
+    height: 100%;
+    position: absolute;
+    max-width: 720px;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.level-1, .level-2, .level-3, .level-4 {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+.level-1 {
+    background-image: url("images/sea-floor.png"), -moz-linear-gradient(top, #083845  0%, #073d72 75%, #073d72 100%);
+    background-image: url("images/sea-floor.png"), -webkit-gradient(left top, left bottom, color-stop(0%, #083845 ), color-stop(75%, #073d72), color-stop(100%, #073d72));
+    background-image: url("images/sea-floor.png"), -webkit-linear-gradient(top, #083845  0%, #073d72 75%, #073d72 100%);
+    background-image: url("images/sea-floor.png"), linear-gradient(to bottom, #083845  0%, #073d72 75%, #073d72 100%);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% 30%, 100%;
+}
+.level-2 {
+    background: -moz-linear-gradient(top, #4d9db3 0%, #094882 50%, #083845 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #4d9db3), color-stop(50%, #094882), color-stop(100%, #083845));
+    background: -webkit-linear-gradient(top, #4d9db3 0%, #094882 50%, #083845 100%);
+    background: linear-gradient(to bottom, #4d9db3 0%, #094882 50%, #083845 100%);
+}
+.level-3 {
+    background: -moz-linear-gradient(top, #24a6c7 0%, #346fa3 62%, #4d9db3 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #24a6c7), color-stop(62%, #346fa3), color-stop(100%, #4d9db3));
+    background: -webkit-linear-gradient(top, #24a6c7 0%, #346fa3 62%, #4d9db3 100%);
+    background: linear-gradient(to bottom, #24a6c7 0%, #346fa3 62%, #4d9db3 100%);
+}
+.level-4 {
+    background-image: -moz-linear-gradient(top, #8ce2f7 0%, #5a96c7 60%, #24a6c7 100%);
+    background-image: -webkit-gradient(left top, left bottom, color-stop(0%, #8ce2f7), color-stop(60%, #5a96c7), color-stop(100%, #24a6c7));
+    background-image: -webkit-linear-gradient(top, #8ce2f7 0%, #5a96c7 60%, #24a6c7 100%);
+    background-image: linear-gradient(to bottom, #8ce2f7 0%, #5a96c7 60%, #24a6c7 100%);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100%;
+}
+.time-section, .point-section, .free-live-section {
+    top: 0px;
+    position: absolute;
+    z-index: 99999;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    width: 80px;
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+}
+.perl-section {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: block;
+    width: 100%;
+}
+.point-section {
+    left: 0px;
+    padding-left: 5px;
+    padding-top: 5px;
+    text-align: left;
+}
+.free-live-section {
+    left: 45%;
+    text-align: center;
+    padding-top: 5px;
+}
+.free-live-section .free-live-icon {
+    background: url("images/life.png");
+    display: inline-block;
+    background-size: 100%;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 9px #333;
+    box-shadow: 0 0 9px #333;
+}
+.free-live-section .free-live-icon+span {
+    ine-height: 25px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    padding-left: 5px;
+}
+.time-section {
+    right: 0px;
+    padding-right: 5px;
+}
+.coins {
+    background: url("images/coin-us-dollar-icon.png");
+    display: inline-block;
+    background-size: 100%;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 9px #333;
+    box-shadow: 0 0 9px #333;
+}
+.point-section .coins + span {
+    line-height: 25px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    padding-left: 5px;
+}
+.highlight {
+    -webkit-animation: glow 1s ease-in-out 3 alternate;
+    -moz-animation: glow 1s ease-in-out 3 alternate;
+    animation: glow 1s ease-in-out 3 alternate;
+}
+@-webkit-keyframes glow {
+    from {
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    50% {
+        -webkit-box-shadow: 0 0 18px #FFDD1B;
+        box-shadow: 0 0 18px #FFDD1B;
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+    }
+    to {
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes glow {
+    from {
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    50% {
+        -webkit-box-shadow: 0 0 18px #FFDD1B;
+        box-shadow: 0 0 18px #FFDD1B;
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+    }
+    to {
+        -webkit-box-shadow: 0 0 9px #333;
+        box-shadow: 0 0 9px #333;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+.bonus-section > div:first-child, .game-failed-section > div:first-child {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.bonus-section > div:nth-child(2), .game-failed-section > div:nth-child(2) {
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.bonus-section > div:nth-child(3), .bonus-section > div:nth-child(4), .game-failed-section > div:nth-child(2) {
+    font-size: 12px;
+}
+.bonus-section > div:nth-child(3) span, .bonus-section > div:nth-child(4) span, .game-failed-section > div:nth-child(3) span {
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 1px;
+}
+.bonus-section, .game-failed-section {
+    position: fixed;
+    width: 80%;
+    margin: auto;
+    color: #fff;
+    overflow: auto;
+    height: 200px;
+    text-align: center;
+    z-index: 999999;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("images/Underwater.jpg") 50% top;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+    -webkit-box-shadow: 0 0 19px #222;
+    box-shadow: 0 0 19px #222;
+    animation: slideExpandUp 1.6s ease-out;
+    -webkit-animation: slideExpandUp 1.6s ease-out;
+    visibility: visible !important;
+    display: none;
+}
+.game-failed-section {
+    height: 180px;
+}
+@keyframes slideExpandUp {
+    0% {
+        transform: translateY(100%) scaleX(0.5);
+    }
+    30%{
+        transform: translateY(-8%) scaleX(0.5);
+    }
+    40%{
+        transform: translateY(2%) scaleX(0.5);
+    }
+    50%{
+        transform: translateY(0%) scaleX(1.1);
+    }
+    60%{
+        transform: translateY(0%) scaleX(0.9);
+    }
+    70% {
+        transform: translateY(0%) scaleX(1.05);
+    }
+    80%{
+        transform: translateY(0%) scaleX(0.95);
+    }
+    90% {
+        transform: translateY(0%) scaleX(1.02);
+    }
+    100%{
+        transform: translateY(0%) scaleX(1);
+    }
+}
+@-webkit-keyframes slideExpandUp {
+    0% {
+        -webkit-transform: translateY(100%) scaleX(0.5);
+    }
+    30%{
+        -webkit-transform: translateY(-8%) scaleX(0.5);
+    }
+    40%{
+        -webkit-transform: translateY(2%) scaleX(0.5);
+    }
+    50%{
+        -webkit-transform: translateY(0%) scaleX(1.1);
+    }
+    60%{
+        -webkit-transform: translateY(0%) scaleX(0.9);
+    }
+    70% {
+        -webkit-transform: translateY(0%) scaleX(1.05);
+    }
+    80%{
+        -webkit-transform: translateY(0%) scaleX(0.95);
+    }
+    90% {
+        -webkit-transform: translateY(0%) scaleX(1.02);
+    }
+    100%{
+        -webkit-transform: translateY(0%) scaleX(1);
+    }
+}
+.bonus-section .coins, .game-failed-section .coins {
+    -webkit-animation: rotate 1s linear infinite alternate;
+    -moz-animation: rotate 1s linear infinite alternate;
+    animation: rotate 1s linear infinite alternate;
+}
+@-webkit-keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+}
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+}
+.bonus-section .bonus-btn-section, .game-failed-section .game-failed-btn-section {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+.bonus-section .bonus-btn-section > button, .game-failed-section .game-failed-btn-section > button {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 90px;
+    background-color: #6496c8;
+    border: 0px none;
+    box-shadow: 0 3px #27496d;
+    letter-spacing: 1px;
+    outline: 0px none;
+    color: #fff;
+}
+.bonus-section .bonus-btn-section > button:hover, .game-failed-section .game-failed-btn-section > button:hover {
+    background-color: #417cb8;
+}
+.bonus-section .bonus-btn-section > button:focus, .game-failed-section .game-failed-btn-section > button:focus {
+    border: 0px none;
+}
+.bonus-section .bonus-btn-section > button:active, .game-failed-section .game-failed-btn-section > button:active {
+    background-color: #417cb8;
+    box-shadow: 0 1px #27496d;
+    transform: translateY(3px);
+}
+.bonus-section .bonus-btn-section > button:first-child {
+    float: left;
+    margin-left: 10px;
+}
+.bonus-section .bonus-btn-section > button:last-child {
+    float: right;
+    margin-right: 10px;
+}
+.level-entry {
+    -webkit-animation: entry 1s linear 1 normal;
+    -moz-animation: entry 1s linear 1 normal;
+    animation: entry 1s linear 1 normal;
+    display: block;
+}
+.level-exit {
+    -webkit-animation: exit 1s linear 1 normal;
+    -moz-animation: exit 1s linear 1 normal;
+    animation: exit 1s linear 1 normal;
+}
+@-webkit-keyframes exit {
+    from {
+        top:0%;
+    }
+    to {
+        top:100%;
+        display: none;
+    }
+}
+@-moz-keyframes exit {
+    from {
+        top:0%;
+    }
+    to {
+        top:100%;
+        display: none;
+    }
+}
+@-webkit-keyframes entry {
+    from {
+        top:-100%;
+    }
+    to {
+        top:0%;
+    }
+}
+@-moz-keyframes entry {
+    from {
+        top:-100%;
+    }
+    to {
+        top:0%;
+    }
+}
+.margin-top-10 {
+    margin-top: 10px;
+}

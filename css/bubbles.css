@@ -1,0 +1,394 @@
+/* css for creating bubbles and pearls */
+.p0 {
+    left: 45%;
+}
+.p1 {
+    left: 30%;
+}
+.p2 {
+    left: 60%;
+}
+.ball {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor:pointer;
+    border-radius: 100%;
+    background: radial-gradient(circle at bottom, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+}
+.ball:before {
+    content: "";
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    background: radial-gradient(circle at top, white, rgba(255, 255, 255, 0) 58%);
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    z-index: 2;
+}
+.ball:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    z-index: 2;
+    -webkit-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+}
+.ball .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    -webkit-transform: rotateX(90deg) translateZ(-160px);
+    transform: rotateX(90deg) translateZ(-160px);
+    z-index: 1;
+}
+.ball.perl {
+    position: absolute;
+    bottom: 30px;
+    height: 25px;
+    z-index: 0;
+    width: 25px;
+    background: radial-gradient(circle at 50% 55%, rgba(240, 245, 255, 0.9), rgba(240, 245, 255, 0.9) 40%, rgba(225, 238, 255, 0.8) 60%, rgba(43, 130, 255, 0.4));
+}
+.ball.perl:before {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    height: 80%;
+    width: 40%;
+    background: radial-gradient(circle at 130% 130%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 58%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+    -webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+    transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+}
+.ball.perl:after {
+    display: block;
+    background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 100%);
+}
+.ball.bubble {
+    box-shadow: 0 0 1px #efefef inset;
+    background: radial-gradient(circle at 50% 55%, transparent, transparent 40%, transparent 60%, rgba(43, 130, 255, 0.4));
+}
+.ball.bubble:before {
+    -webkit-filter: blur(1);
+    filter: blur(1);
+    height: 80%;
+    width: 40%;
+    background: radial-gradient(circle at 130% 130%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 58%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+    -webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+    transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
+}
+.ball.bubble:after {
+    display: block;
+    background: radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 100%);
+}
+@-webkit-keyframes bubble-anim {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    20% {
+        -webkit-transform: scaleY(0.95) scaleX(1.05);
+        transform: scaleY(0.95) scaleX(1.05);
+    }
+
+    48% {
+        -webkit-transform: scaleY(1.1) scaleX(0.9);
+        transform: scaleY(1.1) scaleX(0.9);
+    }
+
+    68% {
+        -webkit-transform: scaleY(0.98) scaleX(1.02);
+        transform: scaleY(0.98) scaleX(1.02);
+    }
+
+    80% {
+        -webkit-transform: scaleY(1.02) scaleX(0.98);
+        transform: scaleY(1.02) scaleX(0.98);
+    }
+
+    97%, 100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes bubble-anim {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    20% {
+        -webkit-transform: scaleY(0.95) scaleX(1.05);
+        transform: scaleY(0.95) scaleX(1.05);
+    }
+
+    48% {
+        -webkit-transform: scaleY(1.1) scaleX(0.9);
+        transform: scaleY(1.1) scaleX(0.9);
+    }
+
+    68% {
+        -webkit-transform: scaleY(0.98) scaleX(1.02);
+        transform: scaleY(0.98) scaleX(1.02);
+    }
+
+    80% {
+        -webkit-transform: scaleY(1.02) scaleX(0.98);
+        transform: scaleY(1.02) scaleX(0.98);
+    }
+
+    97%, 100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* css for bubbles animation */
+.bubble-section, .fish-section, .bowl-section {
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.bubbles{
+    width: 20px;
+    height: 20px;
+    top: 105%;
+    left: 33px;
+    position: absolute;
+}
+.b0 {
+    left: 2%;
+}
+.b1 {
+    left: 15%;
+}
+.b2{
+    left: 35%;
+}
+.b3{
+    left: 55%;
+}
+.b4{
+    left: 75%;
+}
+.b5{
+    left: 95%;
+}
+.b0{
+    animation-name:bubbles;
+    animation-delay:1.2s;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-delay:1.2s;
+    -moz-animation-duration:4s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-delay:1.2s;
+    -webkit-animation-duration:4s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+.b1{
+    animation-name:bubbles;
+    animation-duration:7s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-duration:7s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-duration:7s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+.b2{
+    animation-name:bubbles;
+    animation-delay:1s;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-delay:1s;
+    -moz-animation-duration:4s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-delay:1s;
+    -webkit-animation-duration:4s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+.b3{
+    animation-name:bubbles;
+    animation-delay:1s;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-delay:1s;
+    -moz-animation-duration:3s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-delay:1s;
+    -webkit-animation-duration:3s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+.b4{
+    animation-name:bubbles;
+    animation-duration:6s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-duration:6s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-duration:6s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+.b5{
+    animation-name:bubbles;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+
+    -moz-animation-name:bubbles;
+    -moz-animation-duration:5s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name:bubbles;
+    -webkit-animation-duration:5s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function: linear;
+}
+@keyframes bubbles{
+    from{
+        top: 105%;
+    }
+    20% {
+        transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -webkit-transform: scale(1.4);
+        -o-transform: scale(1.4);
+    }
+    75% {
+        transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+    90% {
+        opacity:1;
+    }
+    to{
+        top:0px;
+        transform: scale(1.7);
+        -moz-transform: scale(1.7);
+        -webkit-transform: scale(1.7);
+        -o-transform: scale(1.7);
+    }
+}
+@-moz-keyframes bubbles{
+    from{
+        top: 105%;
+    }
+    20% {
+        transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -webkit-transform: scale(1.4);
+        -o-transform: scale(1.4);
+    }
+    75% {
+        transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+    90% {
+        opacity:1;
+    }
+    to{
+        top:0px;
+        transform: scale(1.7);
+        -moz-transform: scale(1.7);
+        -webkit-transform: scale(1.7);
+        -o-transform: scale(1.7);
+    }
+}
+@-webkit-keyframes bubbles{
+    from{
+        top: 105%;
+    }
+    20% {
+        transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -webkit-transform: scale(1.4);
+        -o-transform: scale(1.4);
+    }
+    75% {
+        transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+    }
+    90% {
+        opacity:1;
+    }
+    to{
+        top:0px;
+        transform: scale(1.7);
+        -moz-transform: scale(1.7);
+        -webkit-transform: scale(1.7);
+        -o-transform: scale(1.7);
+    }
+}
