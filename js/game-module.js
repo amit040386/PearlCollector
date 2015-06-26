@@ -165,7 +165,8 @@ var gameModule = (function() {
                 "margin": "auto"
             });
             timer.stopTimer();
-            $("#levelInfo").text("You have collected all pearls.");
+            constants.changeText($("#levelInfo"), "BONUS.COMPLETED");
+
             // continue level button will be disabled in this case
             $("#continueGame").hide();
         } else {
@@ -218,8 +219,8 @@ var gameModule = (function() {
 
     // this is for resetting to all default values
     function resetGame() {
-        constants.BOWL_LEVEL = 1;
-        constants.GAME_LEVEL = 1;
+        constants.BOWL_LEVEL = 5;
+        constants.GAME_LEVEL = 4;
         constants.GAME_POINT = 0;
         constants.PERL_COLLECTED = false;
         constants.FREE_LIVES = (3/(constants.GAME_DIFFICULTY_LEVEL/2));
@@ -231,6 +232,7 @@ var gameModule = (function() {
         $("#pointSection").text("0");
         $("#timeSection").text("00:00");
         $("#freeLiveSection").text(constants.FREE_LIVES);
+        constants.changeText($("#levelInfo"), "BONUS.INFO");
 
         // hiding all popups
         $("#gameFailedSection, #bonusSection").hide();

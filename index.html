@@ -21,38 +21,38 @@
 
         <!-- this is level upgrading display section -->
         <div id="bonusSection" class="bonus-section">
-            <div>Congratulations !!!</div>
-            <div id="levelInfo">Your level is increased</div>
+            <div data-localize="BONUS.HEADER"></div>
+            <div id="levelInfo" data-localize="BONUS.INFO"></div>
             <div>
-                <span>You gained </span>
+                <span data-localize="BONUS.GAINED"></span>
                 <span id="bonusVal">0</span>
-                <span>bonus </span>
+                <span data-localize="BONUS.BONUS"></span>
                 <span class="coins"></span>
             </div>
             <div class="margin-top-10">
-                <span>You gained total </span>
+                <span data-localize="BONUS.GAINED_TOTAL"></span>
                 <span id="finalTotalPoints">0</span>
                 <span> </span>
                 <span class="coins"></span>
             </div>
             <div class="bonus-btn-section">
-                <button id="exitGame">Exit</button>
-                <button id="continueGame">Continue</button>
+                <button id="exitGame" data-localize="EXIT"></button>
+                <button id="continueGame" data-localize="CONTINUE"></button>
             </div>
         </div>
 
         <!-- this is game failed message display section -->
         <div id="gameFailedSection" class="game-failed-section">
-            <div>Sorry !!! Not this time</div>
-            <div>You missed to collect all pearls</div>
+            <div data-localize="FAILED.HEADER"></div>
+            <div data-localize="FAILED.INFO"></div>
             <div>
-                <span>You gained total </span>
+                <span data-localize="FAILED.GAINED_TOTAL"></span>
                 <span id="finalPoints">0</span>
                 <span> </span>
                 <span class="coins"></span>
             </div>
             <div class="game-failed-btn-section">
-                <button id="quitGame">Exit</button>
+                <button id="quitGame" data-localize="EXIT"></button>
             </div>
         </div>
 
@@ -175,9 +175,13 @@
 
     </div>
 
+    <!-- library files -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jgestures.min.js"></script>
     <script src="js/velocity.min.js"></script>
+    <script src="js/jquery.localize.js"></script>
+
+    <!--custom files -->
     <script src="js/constants.js"></script>
     <script src="js/game-module.js"></script>
     <script src="js/main.js"></script>

@@ -1,0 +1,17 @@
+{
+    "BONUS": {
+        "INFO": "Your level is increased",
+        "COMPLETED": "You have collected pearl(s)",
+        "HEADER": "Congratulations !!!",
+        "GAINED": "You gained ",
+        "BONUS": "bonus ",
+        "GAINED_TOTAL": "You gained total "
+    },
+    "FAILED": {
+        "HEADER": "Sorry !!! Not this time",
+        "INFO": "You missed to collect all pearls",
+        "GAINED_TOTAL": "You gained total "
+    },
+    "EXIT": "Exit",
+    "CONTINUE": "Continue"
+}

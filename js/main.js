@@ -1,7 +1,8 @@
 (function(){
 
-    constants.GAME_DIFFICULTY_LEVEL = 2;
+    $("[data-localize]").localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
+    var difficulty = 2;
 
     // starting the game
-    gameModule.startGame();
+    gameModule.startGame(difficulty);
 })();

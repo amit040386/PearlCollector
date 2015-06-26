@@ -43,8 +43,14 @@ var constants = (function() {
         FREE_LIVES: 3,
         PERL_COLLECTED: false,
         LAST_BOWL_LEVEL: 1,
+        LANG_PATH: "lang/application",
+        SELECTED_LANG: "en",
         getTimer: function() {
             return new timer();
+        },
+        changeText: function(elem, txt) {
+            $(elem).data("localize",txt);
+            $(elem).localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
         }
     };
 
