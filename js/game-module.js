@@ -60,13 +60,13 @@ var gameModule = (function() {
             bottom: throwHeight,
             left: perlPos.left
         }, {
-            duration: 700,
+            duration: 500,
             easing: "easeOutQuad"
         }).velocity({
             bottom: bottomPos,
             left: perlPos.left
         }, {
-            duration: 700,
+            duration: 500,
             easing: "easeInQuad",
             progress: function(element, complete, remaining, start, tweenValue) {
                 var perlPos = $perlEle.offset(), bowl1Pos = $bowl.offset();
@@ -195,14 +195,9 @@ var gameModule = (function() {
             // for each perl collection, point will increase as per difficulty level
             constants.GAME_POINT += (constants.GAME_DIFFICULTY_LEVEL*constants.GAME_BONUS_POINT);
             printBonusPoint();
-        } else {
-            if(constants.GAME_DIFFICULTY_LEVEL === 1) {
-                // for each miss, point will be deducted
-                constants.GAME_POINT -= 1;
-                printBonusPoint();
-            }
         }
 
+        // if level increased then level bonus will be counted
         if(isLevelIncreased) {
             // for each level increase, some bonus point will be added as per difficulty level
             var bonusPoints = (constants.BOWL_LEVEL*constants.GAME_DIFFICULTY_LEVEL*constants.GAME_BONUS_POINT);
@@ -249,9 +244,12 @@ var gameModule = (function() {
     }
 
     // this is a public function for starting game
-    function startGame() {
+    function startGame(difficultyLevel) {
+
+        constants.GAME_DIFFICULTY_LEVEL = difficultyLevel || 1;
+
+        // resting values before starting the game
         resetGame();
-        constants.GAME_DIFFICULTY_LEVEL = 2;
 
         // pearl placement as per game level
         if(constants.GAME_LEVEL === 1 && $(".perl-section").children(".perl").length === 0) {
