@@ -1,0 +1,17 @@
+{
+    "BONUS": {
+        "INFO": "Su nivel se incrementa",
+        "COMPLETED": "Has recogido perlas(s)",
+        "HEADER": "Felicidades !!!",
+        "GAINED": "Usted ganó ",
+        "BONUS": "prima ",
+        "GAINED_TOTAL": "Usted ganó totales "
+    },
+    "FAILED": {
+        "HEADER": "Apenado !!! No esta vez",
+        "INFO": "Te perdiste para recoger todas las perlas",
+        "GAINED_TOTAL": "Usted ganó totales "
+    },
+    "EXIT": "Salida",
+    "CONTINUE": "Continuar"
+}

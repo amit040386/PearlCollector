@@ -11,6 +11,8 @@ var gameModule = (function() {
             setTimeout(function(){
                 $ripple.remove();
             },4050);
+            // playing tap water sound
+            constants.tapSound.play();
         }
     }
 
@@ -21,6 +23,7 @@ var gameModule = (function() {
 
         constants.PERL_COLLECTED = false;
 
+        // creating water ripple effect
         new createPinchRipple().initRipple(evt);
 
         // this is selecting bowl position and throw height
@@ -60,13 +63,13 @@ var gameModule = (function() {
             bottom: throwHeight,
             left: perlPos.left
         }, {
-            duration: 500,
+            duration: 600,
             easing: "easeOutQuad"
         }).velocity({
             bottom: bottomPos,
             left: perlPos.left
         }, {
-            duration: 500,
+            duration: 600,
             easing: "easeInQuad",
             progress: function(element, complete, remaining, start, tweenValue) {
                 var perlPos = $perlEle.offset(), bowl1Pos = $bowl.offset();
@@ -100,6 +103,7 @@ var gameModule = (function() {
                     // after completing all 4 bowl collection, level will be increased
                     verifyLevelIncrease();
                 } else {
+                    constants.brokenSound.play();
                     if(constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL === 1) {
                         $perlEle.appendTo($("#level"+constants.GAME_LEVEL+" .perl-section"));
                     }
@@ -204,6 +208,7 @@ var gameModule = (function() {
             var bonusPoints = (constants.BOWL_LEVEL*constants.GAME_DIFFICULTY_LEVEL*constants.GAME_BONUS_POINT);
             constants.GAME_POINT += bonusPoints;
             printBonusPoint();
+            constants.cheerSound.play();
             displayNextLevel(bonusPoints);
         }
     }
@@ -247,6 +252,8 @@ var gameModule = (function() {
 
     // this is a public function for starting game
     function startGame(difficultyLevel) {
+        constants.waterSound.play();
+        constants.bubbleSound.play();
 
         constants.GAME_DIFFICULTY_LEVEL = difficultyLevel || 1;
 
@@ -296,6 +303,8 @@ var gameModule = (function() {
     // this is public function for ending game
     function endGame() {
         timer.stopTimer();
+        constants.waterSound.stop();
+        constants.bubbleSound.stop();
     }
 
     //now endGame() will be called if user click on back btn

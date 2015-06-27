@@ -218,6 +218,7 @@
     animation:floating 1s linear 0s infinite normal;
     -moz-animation:floating 1s linear 0s infinite normal;
     -webkit-animation:floating 1s linear 0s infinite normal;
+    z-index: 5;
 }
 /* end level 4 bowls */
 

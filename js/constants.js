@@ -51,7 +51,13 @@ var constants = (function() {
         changeText: function(elem, txt) {
             $(elem).data("localize",txt);
             $(elem).localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
-        }
+        },
+        backSound: null,
+        brokenSound: null,
+        cheerSound: null,
+        tapSound: null,
+        waterSound: null,
+        bubbleSound: null
     };
 
 })();

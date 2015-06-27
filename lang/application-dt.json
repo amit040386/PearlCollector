@@ -1,0 +1,17 @@
+{
+    "BONUS": {
+        "INFO": "Uw niveau wordt verhoogd",
+        "COMPLETED": "Je hebt pearl verzameld(s)",
+        "HEADER": "Gefeliciteerd !!!",
+        "GAINED": "Ge opgedaan ",
+        "BONUS": "bonus ",
+        "GAINED_TOTAL": "U kreeg totaal "
+    },
+    "FAILED": {
+        "HEADER": "Sorry !!! Deze keer niet",
+        "INFO": "Je miste om alle parels te verzamelen",
+        "GAINED_TOTAL": "U kreeg totaal "
+    },
+    "EXIT": "Afrit",
+    "CONTINUE": "Voortzetten"
+}
