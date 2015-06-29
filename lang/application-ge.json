@@ -13,5 +13,34 @@
         "GAINED_TOTAL": "Sie gewann insgesamt "
     },
     "EXIT": "Ausgang",
-    "CONTINUE": "Fortsetzen"
+    "CONTINUE": "Fortsetzen",
+    "MENU": {
+        "GAME_1":"Pearl",
+        "GAME_2":"Collector",
+        "CLASSIC_MODE":"Classic Mode:",
+        "CLASSIC_MODE_INFO":"No time limit",
+        "TIMED_MODE":"Timed Mode:",
+        "TIMED_MODE_INFO":"3 min time limit",
+        "HELP_HEADER":"How to play",
+        "RULE_1":"There is no time limit.Take your time to accomplish your target.",
+        "RULE_2":"There are 4 levels. There are several floating bowls in each level.",
+        "RULE_3":"First level is started from sea level.",
+        "RULE_4":"There are 3 pearls to be collected.",
+        "RULE_5":"You need to reach level 4 to collect pearls.",
+        "RULE_6":"Once you reach level 4 with at least one pearl then you won.",
+        "RULE_7":"If you lose all the pearls before reaching level 4 then you loose.",
+        "RULE_8":"You will get coins for collecting pearl in the bowl in each level.",
+        "RULE_9":"In Hard mode, you'll get more coins.",
+        "RULE_10":"In Easy mode, you'll get less coins.",
+        "RULE_11":"There are free lives depending on difficulties.",
+        "RULE_12":"There are 6 free lives in Easy mode.",
+        "RULE_13":"There are 3 free lives in Hard mode.",
+        "RULE_14":"If you fail to collect pearl in bowl then you can use life to get back lost pearl.",
+        "RULE_15":"You'll earn coins on each level upgradation depending on your difficulty level.",
+        "RULE_16":"There is 3 min time limit. You need to earn coins with collecting pearls as much as you can.",
+        "RULE_17":"Other rules are same as above.",
+        "COIN":"Coins",
+        "DIFFICULTY":"Difficulty",
+        "TIME":"Time (min)"
+    }
 }

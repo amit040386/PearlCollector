@@ -14,6 +14,7 @@ var menuModule = (function(){
         }
 
         constants.SELECTED_LANG = setting.lang;
+        $("#selectLang").val(setting.lang);
         constants.setLang();
 
         $("#pointSection").addClass("black-font-color");

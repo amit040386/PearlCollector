@@ -13,5 +13,34 @@
         "GAINED_TOTAL": "U kreeg totaal "
     },
     "EXIT": "Afrit",
-    "CONTINUE": "Voortzetten"
+    "CONTINUE": "Voortzetten",
+    "MENU": {
+        "GAME_1":"Parel",
+        "GAME_2":"Verzamelaar",
+        "CLASSIC_MODE":"Classic Mode:",
+        "CLASSIC_MODE_INFO":"Geen tijdslimiet",
+        "TIMED_MODE":"Timed Mode:",
+        "TIMED_MODE_INFO":"3 min tijdslimiet",
+        "HELP_HEADER":"Hoe te spelen",
+        "RULE_1":"Er is geen tijd limit.Take uw tijd om uw doelgroep te bereiken.",
+        "RULE_2":"There are 4 levels. There are several floating bowls in each level.",
+        "RULE_3":"Eerste niveau is gestart vanuit de zeespiegel.",
+        "RULE_4":"Er zijn 3 parels worden verzameld.",
+        "RULE_5":"Je moet naar niveau 4 bereiken om parels te verzamelen.",
+        "RULE_6":"Zodra je level 4 te bereiken met tenminste één parel dan heb je gewonnen.",
+        "RULE_7":"Als je verliest alle parels vóór het bereiken van niveau 4 dan moet je los.",
+        "RULE_8":"U krijgt munten voor het verzamelen van de parel in de kom in elk level.",
+        "RULE_9":"In Hard mode, zult u meer munten te krijgen.",
+        "RULE_10":"In de Easy-modus, zult u minder munten.",
+        "RULE_11":"Er zijn gratis leven afhankelijk van moeilijkheden.",
+        "RULE_12":"Er zijn 6 gratis leven in Easy mode.",
+        "RULE_13":"Er zijn 3 gratis levens in Hard mode.",
+        "RULE_14":"Als u niet aan parel in een kom te verzamelen dan kunt u het leven gebruiken om terug verloren parel te krijgen.",
+        "RULE_15":"U zult munten verdienen op elk niveau upgradation afhankelijk van uw moeilijkheidsgraad.",
+        "RULE_16":"Er is 3 min tijdslimiet. Je nodig hebt om munten te verdienen met het verzamelen parels zo veel als je kunt.",
+        "RULE_17":"Andere regels zijn hetzelfde als hierboven.",
+        "COIN":"Munten",
+        "DIFFICULTY":"Moeilijkheid",
+        "TIME":"Tijd (min)"
+    }
 }
