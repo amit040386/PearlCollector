@@ -13,5 +13,34 @@
         "GAINED_TOTAL": "Usted ganó totales "
     },
     "EXIT": "Salida",
-    "CONTINUE": "Continuar"
+    "CONTINUE": "Continuar",
+    "MENU": {
+        "GAME_1":"Perla",
+        "GAME_2":"Coleccionista",
+        "CLASSIC_MODE":"Modo Clásico:",
+        "CLASSIC_MODE_INFO":"Sin límite de tiempo",
+        "TIMED_MODE":"Modo Programado:",
+        "TIMED_MODE_INFO":"Límite de tiempo de 3 minutos",
+        "HELP_HEADER":"Cómo jugar",
+        "RULE_1":"No hay tiempo limit.Take su tiempo para lograr su objetivo.",
+        "RULE_2":"Existen 4 niveles. Hay varios cuencos flotando en cada nivel.",
+        "RULE_3":"Primer nivel se inicia desde el nivel del mar.",
+        "RULE_4":"Hay 3 perlas para ser recogidos.",
+        "RULE_5":"Es necesario para alcanzar el nivel 4 para recoger perlas.",
+        "RULE_6":"Una vez que alcance el nivel 4 con al menos una perla entonces usted ganó.",
+        "RULE_7":"Si pierdes todas las perlas antes de alcanzar el nivel 4, entonces suelta.",
+        "RULE_8":"Usted recibirá las monedas para recoger perlas en el cuenco en cada nivel.",
+        "RULE_9":"En el modo difícil, usted obtendrá más monedas.",
+        "RULE_10":"En el modo Fácil, obtendrá menos monedas.",
+        "RULE_11":"Hay una vida libre en función de las dificultades.",
+        "RULE_12":"Hay 6 vidas libres en modo fácil.",
+        "RULE_13":"Hay 3 vidas libres en modo difícil.",
+        "RULE_14":"Si usted no puede recoger la perla en un recipiente, puede utilizar la vida para obtener la perla de vuelta perdida.",
+        "RULE_15":"Usted ganará monedas en cada upgradation nivel dependiendo de su nivel de dificultad.",
+        "RULE_16":"No hay límite de tiempo de 3 min. Usted necesita ganar monedas con la recolección de perlas tanto como puedas.",
+        "RULE_17":"Otras reglas son las mismas que el anterior.",
+        "COIN":"Monedas",
+        "DIFFICULTY":"Dificultad",
+        "TIME":"Tiempo (min)"
+    }
 }

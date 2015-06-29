@@ -47,7 +47,7 @@ body {
     height: 90px;
     width: 90px;
     border: 1px solid #aaa;
-    top: 45%;
+    top: 50%;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -150,7 +150,7 @@ body {
 }
 .toolbar-section, .game-mode-section {
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 0px;
     right: 0px;
     width: 100%;
@@ -222,7 +222,7 @@ body {
     background-size: 75%;
     width: 24px;
     height: 24px;
-    margin-top: 3px;
+    margin-top: 0px;
     background-image: url("images/clock.png");
 }
 .toolbar-section > .stat {
