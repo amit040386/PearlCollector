@@ -13,5 +13,9 @@
         "GAINED_TOTAL": "You gained total "
     },
     "EXIT": "Exit",
-    "CONTINUE": "Continue"
+    "CONTINUE": "Continue",
+    "MENU": {
+        "GAME_1":"Pearl",
+        "GAME_2":"Collector"
+    }
 }

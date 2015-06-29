@@ -1,14 +1,14 @@
 (function(){
 
-    // sp - Spanish
-    // ger - German
-    // dt - Dutch
+    // this function will save data to local storage if it is not present
+    constants.saveToStorage();
 
     // defining sounds
     if (buzz.isMP3Supported()) {
         // creating menu background sound effect
         constants.backSound = new buzz.sound("./sound/background.mp3",{
-            preload: true
+            preload: true,
+            loop: true
         });
 
         // creating cheering sound effect
@@ -43,9 +43,8 @@
         console.log("It doesn't support mp3 sounds");
     }
 
-    $("[data-localize]").localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
-    var difficulty = 2;
+    $("#main").load("./views/menu-view.html", function() {
+        menuModule.initMenu();
+    });
 
-    // starting the game
-    gameModule.startGame(difficulty);
 })();

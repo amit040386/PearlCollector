@@ -1,16 +1,7 @@
-* {
-    -webkit-font-smoothing: antialiased;
-}
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: arial;
-    overflow: hidden;
-}
 .black-font-color {
     color: #000 !important;
 }
-.game-section {
+.game-section, .main, .menu-section, .stat-section, .help-section {
     height: 100%;
     position: absolute;
     max-width: 720px;
@@ -305,7 +296,7 @@ body {
     bottom: 10px;
     width: 100%;
 }
-.bonus-section .bonus-btn-section > button, .game-failed-section .game-failed-btn-section > button {
+button {
     padding: 5px;
     border-radius: 5px;
     font-size: 14px;
@@ -317,13 +308,13 @@ body {
     outline: 0px none;
     color: #fff;
 }
-.bonus-section .bonus-btn-section > button:hover, .game-failed-section .game-failed-btn-section > button:hover {
+button:hover {
     background-color: #417cb8;
 }
-.bonus-section .bonus-btn-section > button:focus, .game-failed-section .game-failed-btn-section > button:focus {
+button:focus {
     border: 0px none;
 }
-.bonus-section .bonus-btn-section > button:active, .game-failed-section .game-failed-btn-section > button:active {
+button:active {
     background-color: #417cb8;
     box-shadow: 0 1px #27496d;
     transform: translateY(3px);

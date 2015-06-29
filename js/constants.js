@@ -57,7 +57,47 @@ var constants = (function() {
         cheerSound: null,
         tapSound: null,
         waterSound: null,
-        bubbleSound: null
+        bubbleSound: null,
+        setLang: function() {
+            $("[data-localize]").localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
+        },
+        saveToStorage: function(mapObj) {
+            if(! localStorage.pearlCollector) {
+                localStorage.setItem("pearlCollector", JSON.stringify({
+                    "lang": constants.SELECTED_LANG,
+                    "music": "on",
+                    "point": 0,
+                    "stat": []
+                }));
+            } else {
+                var savedObj = JSON.parse(localStorage.getItem("pearlCollector"));
+                $.extend(true, savedObj, mapObj);
+                localStorage.setItem("pearlCollector", JSON.stringify(savedObj));
+            }
+        },
+        getFromStorage: function(name) {
+            var val = undefined;
+            if(localStorage.pearlCollector) {
+                var obj = JSON.parse(localStorage.getItem("pearlCollector"));
+                if(name && localStorage.pearlCollector[name]) {
+                    val = obj[name];
+                } else {
+                    val = obj;
+                }
+            }
+            return val;
+        },
+        setSound: function(mode) {
+            for(var index in buzz.sounds) {
+                if(mode === "toggle") {
+                    buzz.sounds[index].toggleMute();
+                } else if(mode === "mute") {
+                    buzz.sounds[index].mute();
+                } else if(mode === "unmute") {
+                    buzz.sounds[index].unmute();
+                }
+            }
+        }
     };
 
 })();

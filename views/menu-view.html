@@ -1,10 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="menu-section">
 
-</body>
-</html>
+    <!-- this is menu bubble section -->
+    <div class="bubble-section">
+        <span class="bubbles b0 ball bubble"></span>
+        <span class="bubbles b1 ball bubble"></span>
+        <span class="bubbles b2 ball bubble"></span>
+        <span class="bubbles b3 ball bubble"></span>
+        <span class="bubbles b4 ball bubble"></span>
+        <span class="bubbles b5 ball bubble"></span>
+    </div>
+
+    <!-- this is game header section -->
+    <div class="header-text">
+        <h1 data-localize="MENU.GAME_1"></h1>
+        <h1 data-localize="MENU.GAME_2"></h1>
+    </div>
+
+    <!-- game mode section section -->
+    <div class="game-mode-section">
+        <span class="classic-mode">
+            <span class="normal">&infin;</span>
+            <span>
+                <div class="bold">Classic Mode:</div>
+                <div>No time limit.</div>
+            </span>
+        </span>
+        <span class="timed-mode">
+            <span class="timer"></span>
+            <span>
+                <div class="bold">Timed Mode:</div>
+                <div>3 min time limit.</div>
+            </span>
+        </span>
+    </div>
+
+    <!-- language selection section -->
+    <div class="lang-section">
+        <select id="selectLang">
+            <option value="en">en-us</option>
+            <option value="dt">dutch</option>
+            <option value="sp">spanish</option>
+            <option value="ge">german</option>
+        </select>
+    </div>
+
+    <!-- this is play game button -->
+    <div class="play-game" id="playGame">
+        <span class="arrow"></span>
+    </div>
+
+    <!-- this is menu toolbar section for help, stat and sound on or off -->
+    <div class="toolbar-section">
+        <span class="stat" id="stat"></span>
+        <span class="help" id="help"></span>
+        <span class="sound-on" id="sound"></span>
+    </div>
+
+    <!-- this is point section for displaying points gained by user -->
+    <span class="point-section">
+        <span class="coins"></span>
+        <span id="pointSection">0</span>
+    </span>
+
+    <!-- this is menu water wave section -->
+    <div class="wave-section">
+        <div class="wave"></div>
+    </div>
+
+    <!-- game help section -->
+    <div class="help-section" id="gameHelp" style="display: none;">
+        <h1>How to play</h1>
+        <div class="help-content">
+            <div class="bold">Classic Mode</div>
+            <ul>
+                <li>There is no time limit.Take your time to accomplish your target.</li>
+                <li>There are 4 levels. There are several floating bowls in each level.</li>
+                <li>First level is started from sea level.</li>
+                <li>There are 3 pearls to be collected.</li>
+                <li>You need to reach level 4 to collect pearls.</li>
+                <li>Once you reach level 4 with at least one pearl then you won.</li>
+                <li>If you loose all the pearls before reaching level 4 then you loose.</li>
+                <li>You will get coins for collecting pearl in the bowl in each level.</li>
+                <li>In Hard mode, you'll get more coins.</li>
+                <li>In Easy mode, you'll get less coins.</li>
+                <li>There are free lives depending on difficulties.</li>
+                <li>There are 6 free lives in Easy mode.</li>
+                <li>There are 3 free lives in Hard mode.</li>
+                <li>If you fail to collect pearl in bowl then you can use life to get back lost pearl.</li>
+                <li>You'll earn coins on each level upgradation depending on your difficulty level.</li>
+            </ul>
+            <div class="bold">Classic Mode</div>
+            <ul>
+                <li>There is 3 min time limit. You need to earn coins with collecting pearls as much as you can.</li>
+                <li>Other rules are same as above.</li>
+            </ul>
+        </div>
+        <div class="btn-section">
+            <button id="exitHelp">Exit</button>
+        </div>
+    </div>
+
+    <!-- game stat section -->
+    <div class="stat-section" id="gameStat" style="display: none;">
+        <div class="table">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <th style="width: 33.3%">Coins</th>
+                    <th style="width: 33.3%">Difficulty</th>
+                    <th style="width: 33.3%">Time (min)</th>
+                </thead>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0"></table>
+        </div>
+        <div class="btn-section">
+            <button id="exitStat">Exit</button>
+        </div>
+    </div>
+
+</div>

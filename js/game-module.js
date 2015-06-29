@@ -224,8 +224,8 @@ var gameModule = (function() {
 
     // this is for resetting to all default values
     function resetGame() {
-        constants.BOWL_LEVEL = 5;
-        constants.GAME_LEVEL = 4;
+        constants.BOWL_LEVEL = 1;
+        constants.GAME_LEVEL = 1;
         constants.GAME_POINT = 0;
         constants.PERL_COLLECTED = false;
         constants.FREE_LIVES = (3/(constants.GAME_DIFFICULTY_LEVEL/2));
@@ -252,6 +252,9 @@ var gameModule = (function() {
 
     // this is a public function for starting game
     function startGame(difficultyLevel) {
+        // setting localized languages
+        constants.setLang();
+
         constants.waterSound.play();
         constants.bubbleSound.play();
 

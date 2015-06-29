@@ -1,191 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="description" content="This is html5 based game. It is developed by Amit Pal" />
-    <title>Pearl Collector</title>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <meta name="description" content="This is html5 based game. It is developed by Amit Pal" />
+        <title>Pearl Collector</title>
 
-    <link rel="stylesheet" href="css/game.css"/>
-    <link rel="stylesheet" href="css/bubbles.css"/>
-    <link rel="stylesheet" href="css/fish.css"/>
-    <link rel="stylesheet" href="css/bowl.css"/>
-    <link rel="stylesheet" href="css/sea.css"/>
+        <link rel="stylesheet" href="css/menu.css"/>
+        <link rel="stylesheet" href="css/game.css"/>
+        <link rel="stylesheet" href="css/bubbles.css"/>
+        <link rel="stylesheet" href="css/fish.css"/>
+        <link rel="stylesheet" href="css/bowl.css"/>
+        <link rel="stylesheet" href="css/sea.css"/>
 
-</head>
-<body>
+    </head>
+    <body>
 
-    <!-- this is main game section -->
-    <div id="gameSection" class="game-section">
+        <!-- main section -->
+        <div class="main" id="main"></div>
 
-        <!-- this is level upgrading display section -->
-        <div id="bonusSection" class="bonus-section">
-            <div data-localize="BONUS.HEADER"></div>
-            <div id="levelInfo" data-localize="BONUS.INFO"></div>
-            <div>
-                <span data-localize="BONUS.GAINED"></span>
-                <span id="bonusVal">0</span>
-                <span data-localize="BONUS.BONUS"></span>
-                <span class="coins"></span>
-            </div>
-            <div class="margin-top-10">
-                <span data-localize="BONUS.GAINED_TOTAL"></span>
-                <span id="finalTotalPoints">0</span>
-                <span> </span>
-                <span class="coins"></span>
-            </div>
-            <div class="bonus-btn-section">
-                <button id="exitGame" data-localize="EXIT"></button>
-                <button id="continueGame" data-localize="CONTINUE"></button>
-            </div>
-        </div>
+        <!-- library files -->
+        <script src="js/lib/jquery-2.1.4.min.js"></script>
+        <script src="js/lib/jgestures.min.js"></script>
+        <script src="js/lib/velocity.min.js"></script>
+        <script src="js/lib/jquery.localize.min.js"></script>
+        <script src="js/lib/buzz.min.js"></script>
 
-        <!-- this is game failed message display section -->
-        <div id="gameFailedSection" class="game-failed-section">
-            <div data-localize="FAILED.HEADER"></div>
-            <div data-localize="FAILED.INFO"></div>
-            <div>
-                <span data-localize="FAILED.GAINED_TOTAL"></span>
-                <span id="finalPoints">0</span>
-                <span> </span>
-                <span class="coins"></span>
-            </div>
-            <div class="game-failed-btn-section">
-                <button id="quitGame" data-localize="EXIT"></button>
-            </div>
-        </div>
+        <!--custom files -->
+        <script src="js/constants.js"></script>
+        <script src="js/game-module.js"></script>
+        <script src="js/menu-module.js"></script>
+        <script src="js/main.js"></script>
 
-        <!-- this is for displaying timer -->
-        <span id="timeSection" class="time-section">00:00</span>
-
-        <!-- free live section -->
-        <span class="free-live-section">
-            <span class="free-live-icon"></span>
-            <span id="freeLiveSection">0</span>
-        </span>
-
-        <!-- this is for displaying points -->
-        <span class="point-section">
-            <span class="coins"></span>
-            <span id="pointSection">0</span>
-        </span>
-
-        <!-- this is level 1 section -->
-        <div class="level-1 level" id="level1">
-            <div class="fish-section">
-                <span class="fish fish-3"><span class="fish-body"></span></span>
-                <span class="fish fish-4"></span>
-            </div>
-            <div class="perl-section">
-                <div id="perl1" class="perl ball p0">
-                    <span class="shadow"></span>
-                </div>
-                <div id="perl2" class="perl ball p1">
-                    <span class="shadow"></span>
-                </div>
-                <div id="perl3" class="perl ball p2">
-                    <span class="shadow"></span>
-                </div>
-            </div>
-            <div class="bubble-section">
-                <span class="bubbles b0 ball bubble"></span>
-                <span class="bubbles b1 ball bubble"></span>
-                <span class="bubbles b2 ball bubble"></span>
-                <span class="bubbles b3 ball bubble"></span>
-                <span class="bubbles b4 ball bubble"></span>
-                <span class="bubbles b5 ball bubble"></span>
-            </div>
-            <div class="bowl-section">
-                <span class="bowl bowl1"></span>
-                <span class="bowl bowl2"></span>
-                <span class="bowl bowl3"></span>
-                <span class="bowl bowl4"></span>
-            </div>
-        </div>
-
-        <!-- this is level 2 section -->
-        <div class="level-2 level" id="level2">
-            <div class="fish-section">
-                <span class="fish fish-2"></span>
-            </div>
-            <div class="bowl-section">
-                <span class="bowl bowl1"></span>
-                <span class="bowl bowl2"></span>
-                <span class="bowl bowl3"></span>
-                <span class="bowl bowl4"></span>
-                <span class="bowl bowl5"></span>
-            </div>
-            <div class="bubble-section">
-                <span class="bubbles b0 ball bubble"></span>
-                <span class="bubbles b1 ball bubble"></span>
-                <span class="bubbles b2 ball bubble"></span>
-                <span class="bubbles b3 ball bubble"></span>
-                <span class="bubbles b4 ball bubble"></span>
-                <span class="bubbles b5 ball bubble"></span>
-            </div>
-        </div>
-
-        <!-- this is level 3 section -->
-        <div class="level-3 level" id="level3">
-            <div class="fish-section">
-                <span class="fish fish-5"><span class="fish-body"></span></span>
-            </div>
-            <div class="bowl-section">
-                <span class="bowl bowl1"></span>
-                <span class="bowl bowl2"></span>
-                <span class="bowl bowl3"></span>
-                <span class="bowl bowl4"></span>
-                <span class="bowl bowl5"></span>
-            </div>
-            <div class="bubble-section">
-                <span class="bubbles b0 ball bubble"></span>
-                <span class="bubbles b1 ball bubble"></span>
-                <span class="bubbles b2 ball bubble"></span>
-                <span class="bubbles b3 ball bubble"></span>
-                <span class="bubbles b4 ball bubble"></span>
-                <span class="bubbles b5 ball bubble"></span>
-            </div>
-        </div>
-
-        <!-- this is level 4 section -->
-        <div class="level-4 level" id="level4">
-            <div class="wave-section">
-                <div class="wave"></div>
-            </div>
-            <div class="fish-section">
-                <span class="fish fish-1"><span class="fish-body"></span></span>
-            </div>
-            <div class="bowl-section">
-                <span class="bowl bowl1"></span>
-                <span class="bowl bowl2"></span>
-                <span class="bowl bowl3"></span>
-                <span class="bowl bowl4"></span>
-                <span class="bowl bowl5"></span>
-            </div>
-            <div class="bubble-section">
-                <span class="bubbles b0 ball bubble"></span>
-                <span class="bubbles b1 ball bubble"></span>
-                <span class="bubbles b2 ball bubble"></span>
-                <span class="bubbles b3 ball bubble"></span>
-                <span class="bubbles b4 ball bubble"></span>
-                <span class="bubbles b5 ball bubble"></span>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- library files -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/jgestures.min.js"></script>
-    <script src="js/velocity.min.js"></script>
-    <script src="js/jquery.localize.min.js"></script>
-    <script src="js/buzz.min.js"></script>
-
-    <!--custom files -->
-    <script src="js/constants.js"></script>
-    <script src="js/game-module.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
+    </body>
 </html>
