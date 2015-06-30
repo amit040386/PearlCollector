@@ -184,7 +184,7 @@
 }
 .bonus-section, .game-failed-section {
     position: fixed;
-    width: 80%;
+    width: 90%;
     margin: auto;
     color: #fff;
     overflow: auto;

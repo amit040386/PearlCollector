@@ -16,6 +16,7 @@ var menuModule = (function(){
         constants.SELECTED_LANG = setting.lang;
         $("#selectLang").val(setting.lang);
         constants.setLang();
+        $("body").removeAttr("lang").attr("lang",setting.lang);
 
         $("#pointSection").addClass("black-font-color");
 
@@ -32,6 +33,7 @@ var menuModule = (function(){
         // select language event listener
         $("#selectLang").on("change", function() {
             constants.SELECTED_LANG = $(this).val();
+            $("body").removeAttr("lang").attr("lang",constants.SELECTED_LANG);
             constants.setLang();
             constants.saveToStorage({
                 lang: constants.SELECTED_LANG

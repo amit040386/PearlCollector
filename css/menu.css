@@ -173,11 +173,12 @@ body {
     background-size: 75%;
 }
 .game-mode-section {
-    top: 35%;
+    top: 37%;
 }
 .game-mode-section > span {
-    display: inline-flex;
+    display: inline-block;
     width: 35%;
+    vertical-align: top;
     margin: 0 10px;
     border: 1px solid rgb(77,162,252);
     padding: 5px;
@@ -197,6 +198,7 @@ body {
     color: #fff;
     font-size: 12px;
     padding-left: 5px;
+    word-break: break-all;
 }
 .game-mode-section .normal {
     border-radius: 100%;

@@ -224,7 +224,7 @@ var gameModule = (function() {
 
     // this is for resetting to all default values
     function resetGame() {
-        constants.BOWL_LEVEL = 1;
+        constants.BOWL_LEVEL = 4;
         constants.GAME_LEVEL = 1;
         constants.GAME_POINT = 0;
         constants.PERL_COLLECTED = false;

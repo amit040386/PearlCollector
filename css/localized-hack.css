@@ -1,0 +1,15 @@
+/* ui adjustment for dutch language */
+body[lang=dt] .header-text > h1 {
+    font-size: 30px;
+}
+/* end ui adjustment for dutch language */
+
+/* ui adjustment for spanish language */
+body[lang=sp] .header-text > h1 {
+    font-size: 30px;
+}
+body[lang=sp] .game-mode-section > span {
+    width: 41%;
+    margin: 0 5px;
+}
+/* end ui adjustment for spanish language */
