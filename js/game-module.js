@@ -260,6 +260,19 @@ var gameModule = (function() {
         // resting values before starting the game
         resetGame();
 
+        // game pause and live event listener
+        $("#pauseGame").off("click").on("click", function(e) {
+            e.stopImmediatePropagation();
+            $(this).toggleClass("pause live");
+            if($(this).hasClass("live")) {
+                timer.pauseTimer();
+                $(document).off("click", throwPerl);
+            } else {
+                $(document).one("click", throwPerl);
+                timer.startTimer();
+            }
+        });
+
         // pearl placement as per game level
         if(constants.GAME_LEVEL === 1 && $(".perl-section").children(".perl").length === 0) {
             $(".perl").appendTo($(".perl-section"));
@@ -306,7 +319,12 @@ var gameModule = (function() {
         // this is updating total point
         constants.TOTAL_POINT += constants.GAME_POINT;
         constants.saveToStorage({
-            point: constants.TOTAL_POINT
+            point: constants.TOTAL_POINT,
+            stat: {
+                coins: constants.GAME_POINT,
+                difficulty: constants.GAME_DIFFICULTY_LEVEL,
+                time: $("#timeSection").text()
+            }
         });
         $(document).off("click", throwPerl);
         constants.waterSound.stop();

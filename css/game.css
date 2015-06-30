@@ -100,6 +100,11 @@
 .time-section {
     right: 0px;
     padding-right: 5px;
+    margin-top: 5px;
+}
+#timeSection {
+    vertical-align: top;
+    line-height: 22px;
 }
 .coins {
     background: url("images/coin-us-dollar-icon.png");
@@ -376,4 +381,17 @@ button:active {
 }
 .margin-top-10 {
     margin-top: 10px;
+}
+.time-section .pause, .time-section .live {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+}
+.time-section .pause {
+    background-image: url("images/pause.png");
+}
+.time-section .live {
+    background-image: url("images/play.png");
 }

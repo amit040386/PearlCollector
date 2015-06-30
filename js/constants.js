@@ -71,9 +71,15 @@ var constants = (function() {
                     "stat": []
                 }));
             } else {
-                var savedObj = JSON.parse(localStorage.getItem("pearlCollector"));
-                $.extend(true, savedObj, mapObj);
-                localStorage.setItem("pearlCollector", JSON.stringify(savedObj));
+                if(mapObj) {
+                    var savedObj = JSON.parse(localStorage.getItem("pearlCollector"));
+                    if(mapObj.stat) {
+                        savedObj.stat.push(mapObj.stat);
+                        delete mapObj.stat;
+                    }
+                    $.extend(true, savedObj, mapObj);
+                    localStorage.setItem("pearlCollector", JSON.stringify(savedObj));
+                }
             }
         },
         getFromStorage: function(name) {
