@@ -215,8 +215,6 @@ var gameModule = (function() {
 
     // for displaying points
     function printBonusPoint() {
-        // if somehow, point becomes less than 0 then it always should be 0
-        constants.GAME_POINT = ((constants.GAME_POINT < 0) ? 0 : constants.GAME_POINT);
         $("#pointSection").text(constants.GAME_POINT);
         $(".point-section .coins").remove();
         $(".point-section").prepend("<span class='coins highlight'></span>");
@@ -232,6 +230,7 @@ var gameModule = (function() {
 
         // invisible other game levels
         $(".level:not('.level-"+constants.GAME_LEVEL+"')").hide();
+
         // making visible only first level
         $("#level"+constants.GAME_LEVEL).show();
         $("#pointSection").text("0");
@@ -251,14 +250,12 @@ var gameModule = (function() {
     }
 
     // this is a public function for starting game
-    function startGame(difficultyLevel) {
+    function startGame() {
         // setting localized languages
         constants.setLang();
 
         constants.waterSound.play();
         constants.bubbleSound.play();
-
-        constants.GAME_DIFFICULTY_LEVEL = difficultyLevel || 1;
 
         // resting values before starting the game
         resetGame();
@@ -306,8 +303,18 @@ var gameModule = (function() {
     // this is public function for ending game
     function endGame() {
         timer.stopTimer();
+        // this is updating total point
+        constants.TOTAL_POINT += constants.GAME_POINT;
+        constants.saveToStorage({
+            point: constants.TOTAL_POINT
+        });
+        $(document).off("click", throwPerl);
         constants.waterSound.stop();
         constants.bubbleSound.stop();
+        $("#main").load("./views/menu-view.html", function() {
+            menuModule.initMenu();
+        });
+        $(".perl","body").remove();
     }
 
     //now endGame() will be called if user click on back btn

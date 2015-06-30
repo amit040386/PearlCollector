@@ -33,6 +33,7 @@ var constants = (function() {
     return {
         GAME_LEVEL: 1,
         GAME_POINT: 0,
+        TOTAL_POINT: 0,
         GAME_BONUS_POINT: 5,
         GAME_DIFFICULTY_LEVEL: 1,
         BOWL_LEVEL: 1,

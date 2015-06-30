@@ -5,6 +5,8 @@ var menuModule = (function(){
 
         // preparing menu based on saved data in local storage
         var setting = constants.getFromStorage();
+        constants.TOTAL_POINT = setting.point;
+
         if(setting.music === "on") {
             $("#sound").addClass("sound-on").removeClass("sound-off");
             constants.setSound("unmute");
@@ -12,6 +14,8 @@ var menuModule = (function(){
             $("#sound").addClass("sound-off").removeClass("sound-on");
             constants.setSound("mute");
         }
+
+        $("#pointSection").text(constants.TOTAL_POINT);
 
         constants.SELECTED_LANG = setting.lang;
         $("#selectLang").val(setting.lang);
@@ -23,34 +27,34 @@ var menuModule = (function(){
         constants.backSound.play();
 
         // play game event listener
-        $("#playGame").one("click", function() {
+        $("#playGame").off("click").on("click", function() {
             if($(".selected-mode").hasClass("classic-mode")) {
                 $("#gameDiffSelection").fadeIn();
                 $("#playGame").fadeOut();
             } else {
                 $("#main").load("./views/game-view.html", function() {
-                    var difficulty = 2;
-                    gameModule.startGame(difficulty);
+                    constants.GAME_DIFFICULTY_LEVEL = 2;
+                    gameModule.startGame();
                 });
             }
         });
 
         // event listener for difficulty mode selection
-        $("button","#gameDiffSelection").on("click", function() {
-            var difficulty = +$(this).attr("difficulty-mode");
+        $("button","#gameDiffSelection").off("click").on("click", function() {
+            constants.GAME_DIFFICULTY_LEVEL = +$(this).attr("difficulty-mode");
             $("#main").load("./views/game-view.html", function() {
-                gameModule.startGame(difficulty);
+                gameModule.startGame();
             });
         });
 
         // game mode selection event listener
-        $(".mode").on("click", function(){
+        $(".mode").off("click").on("click", function(){
             $(".mode").removeClass("selected-mode");
             $(this).addClass("selected-mode");
         });
 
         // select language event listener
-        $("#selectLang").on("change", function() {
+        $("#selectLang").off("click").on("change", function() {
             constants.SELECTED_LANG = $(this).val();
             $("body").removeAttr("lang").attr("lang",constants.SELECTED_LANG);
             constants.setLang();
@@ -60,7 +64,7 @@ var menuModule = (function(){
         });
 
         // sound on or off event listener
-        $("#sound").on("click", function() {
+        $("#sound").off("click").on("click", function() {
             $(this).toggleClass("sound-on sound-off");
             var mode = $(this).attr("class").split("-")[1];
             constants.saveToStorage({
@@ -70,22 +74,22 @@ var menuModule = (function(){
         });
 
         // game statistics modal opening event listener
-        $("#stat").on("click", function(){
+        $("#stat").off("click").on("click", function(){
            $("#gameStat").slideDown();
         });
 
         // exit stat modal event listener
-        $("#exitStat").on("click", function(){
+        $("#exitStat").off("click").on("click", function(){
             $("#gameStat").slideUp();
         });
 
         // help modal opening event listener
-        $("#help").on("click", function(){
+        $("#help").off("click").on("click", function(){
             $("#gameHelp").slideDown();
         });
 
         // exit help modal event listener
-        $("#exitHelp").on("click", function(){
+        $("#exitHelp").off("click").on("click", function(){
            $("#gameHelp").slideUp();
         });
     }

@@ -43,6 +43,7 @@
         console.log("It doesn't support mp3 sounds");
     }
 
+    // load game menu
     $("#main").load("./views/menu-view.html", function() {
         menuModule.initMenu();
     });
