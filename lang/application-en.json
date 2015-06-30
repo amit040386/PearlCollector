@@ -14,6 +14,8 @@
     },
     "EXIT": "Exit",
     "CONTINUE": "Continue",
+    "EASY":"Easy",
+    "HARD":"Hard",
     "MENU": {
         "GAME_1":"Pearl",
         "GAME_2":"Collector",
@@ -22,6 +24,7 @@
         "TIMED_MODE":"Timed Mode:",
         "TIMED_MODE_INFO":"3 min time limit",
         "HELP_HEADER":"How to play",
+        "RULE_0": "Tap anywhere in the screen to throw the ball.",
         "RULE_1":"There is no time limit.Take your time to accomplish your target.",
         "RULE_2":"There are 4 levels. There are several floating bowls in each level.",
         "RULE_3":"First level is started from sea level.",

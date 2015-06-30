@@ -14,6 +14,8 @@
     },
     "EXIT": "Salida",
     "CONTINUE": "Continuar",
+    "EASY":"Fácil",
+    "HARD":"Difícil",
     "MENU": {
         "GAME_1":"Perla",
         "GAME_2":"Coleccionista",
@@ -22,6 +24,7 @@
         "TIMED_MODE":"Modo Programado:",
         "TIMED_MODE_INFO":"Límite de tiempo de 3 minutos",
         "HELP_HEADER":"Cómo jugar",
+        "RULE_0": "Toque en cualquier lugar de la pantalla para lanzar la bola.",
         "RULE_1":"No hay tiempo limit.Take su tiempo para lograr su objetivo.",
         "RULE_2":"Existen 4 niveles. Hay varios cuencos flotando en cada nivel.",
         "RULE_3":"Primer nivel se inicia desde el nivel del mar.",

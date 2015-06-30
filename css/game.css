@@ -195,7 +195,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("images/Underwater.jpg") 50% top;
+    background: url("images/Underwater.jpg");
+    background-size: 100%;
+    background-position: top;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     -webkit-box-shadow: 0 0 19px #222;

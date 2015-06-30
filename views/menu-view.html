@@ -18,14 +18,14 @@
 
     <!-- game mode section section -->
     <div class="game-mode-section">
-        <span class="classic-mode">
+        <span class="classic-mode selected-mode mode">
             <span class="normal">&infin;</span>
             <span>
                 <div class="bold" data-localize="MENU.CLASSIC_MODE"></div>
                 <div data-localize="MENU.CLASSIC_MODE_INFO"></div>
             </span>
         </span>
-        <span class="timed-mode">
+        <span class="timed-mode mode">
             <span class="timer"></span>
             <span>
                 <div class="bold" data-localize="MENU.TIMED_MODE"></div>
@@ -37,11 +37,17 @@
     <!-- language selection section -->
     <div class="lang-section">
         <select id="selectLang">
-            <option value="en">en-us</option>
-            <option value="dt">dutch</option>
-            <option value="sp">spanish</option>
-            <option value="ge">german</option>
+            <option value="en">English</option>
+            <option value="dt">Dutch</option>
+            <option value="sp">Spanish</option>
+            <option value="ge">German</option>
         </select>
+    </div>
+
+    <!-- game mode selection -->
+    <div class="game-difficulty-section" id="gameDiffSelection" style="display: none;">
+        <button data-localize="EASY" difficulty-mode="1"></button>
+        <button data-localize="HARD" difficulty-mode="2"></button>
     </div>
 
     <!-- this is play game button -->
@@ -71,6 +77,7 @@
     <div class="help-section" id="gameHelp" style="display: none;">
         <h1 data-localize="MENU.HELP_HEADER"></h1>
         <div class="help-content">
+            <div data-localize="MENU.RULE_0"></div>
             <div class="bold" data-localize="MENU.CLASSIC_MODE"></div>
             <ul>
                 <li data-localize="MENU.RULE_1"></li>

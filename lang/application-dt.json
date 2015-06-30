@@ -14,6 +14,8 @@
     },
     "EXIT": "Afrit",
     "CONTINUE": "Voortzetten",
+    "EASY":"Makkelijk",
+    "HARD":"Hard",
     "MENU": {
         "GAME_1":"Parel",
         "GAME_2":"Verzamelaar",
@@ -22,6 +24,7 @@
         "TIMED_MODE":"Timed Mode:",
         "TIMED_MODE_INFO":"3 min tijdslimiet",
         "HELP_HEADER":"Hoe te spelen",
+        "RULE_0": "Tik ergens op het scherm om de bal te gooien.",
         "RULE_1":"Er is geen tijd limit.Take uw tijd om uw doelgroep te bereiken.",
         "RULE_2":"There are 4 levels. There are several floating bowls in each level.",
         "RULE_3":"Eerste niveau is gestart vanuit de zeespiegel.",

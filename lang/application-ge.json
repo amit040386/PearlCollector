@@ -14,6 +14,8 @@
     },
     "EXIT": "Ausgang",
     "CONTINUE": "Fortsetzen",
+    "EASY":"Einfach",
+    "HARD":"Schwer",
     "MENU": {
         "GAME_1":"Perle",
         "GAME_2":"Sammler",
@@ -22,6 +24,7 @@
         "TIMED_MODE":"Timed-Modus:",
         "TIMED_MODE_INFO":"3 min Frist",
         "HELP_HEADER":"Spielanleitung",
+        "RULE_0": "Tippen Sie irgendwo auf dem Bildschirm, um den Ball zu werfen.",
         "RULE_1":"Es gibt keine Zeit limit.Take Ihre Zeit, um Ihr Ziel zu erreichen.",
         "RULE_2":"Es gibt 4 Ebenen. Es gibt mehrere Schwimm Schalen in jeder Ebene.",
         "RULE_3":"Erste Ebene wird aus dem Meer begonnen.",

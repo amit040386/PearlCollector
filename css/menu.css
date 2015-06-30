@@ -208,7 +208,7 @@ body {
     background-color: #fff;
     line-height: 24px;
     font-size: 34px;
-    color: #D5351E;
+    color: #F5654F;
     width: 24px;
     height: 24px;
     margin-top: 3px;
@@ -360,4 +360,23 @@ body {
 }
 .help-content ul li {
     margin: 5px 0;
+}
+.game-difficulty-section {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.game-difficulty-section button {
+    text-transform: uppercase;
+    width: 100%;
+    display: block;
+    margin: 10px auto;
+}
+.selected-mode {
+    background-color: rgb(4, 40, 53) !important;
 }

@@ -24,10 +24,29 @@ var menuModule = (function(){
 
         // play game event listener
         $("#playGame").one("click", function() {
+            if($(".selected-mode").hasClass("classic-mode")) {
+                $("#gameDiffSelection").fadeIn();
+                $("#playGame").fadeOut();
+            } else {
+                $("#main").load("./views/game-view.html", function() {
+                    var difficulty = 2;
+                    gameModule.startGame(difficulty);
+                });
+            }
+        });
+
+        // event listener for difficulty mode selection
+        $("button","#gameDiffSelection").on("click", function() {
+            var difficulty = +$(this).attr("difficulty-mode");
             $("#main").load("./views/game-view.html", function() {
-                var difficulty = 2;
                 gameModule.startGame(difficulty);
             });
+        });
+
+        // game mode selection event listener
+        $(".mode").on("click", function(){
+            $(".mode").removeClass("selected-mode");
+            $(this).addClass("selected-mode");
         });
 
         // select language event listener
