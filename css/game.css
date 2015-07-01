@@ -1,7 +1,7 @@
 .black-font-color {
     color: #000 !important;
 }
-.game-section, .main, .menu-section, .stat-section, .help-section {
+.game-section, .main, .menu-section, .stat-section, .help-section, .game-pause-modal {
     height: 100%;
     position: absolute;
     max-width: 720px;
@@ -394,4 +394,22 @@ button:active {
 }
 .time-section .live {
     background-image: url("images/play.png");
+}
+.game-pause-modal {
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 999999;
+}
+.game-pause-modal > div {
+    height: 100px;
+    position: absolute;
+    width: 120px;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.game-pause-modal button {
+    display: block;
+    margin: 20px auto;
 }

@@ -1,5 +1,7 @@
 var menuModule = (function(){
 
+    'use strict';
+
     function initMenu() {
         constants.setLang();
 

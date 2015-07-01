@@ -1,4 +1,5 @@
 var gameModule = (function() {
+
     "use strict";
 
     var timer = constants.getTimer(), windowHeight = $(window).height();
@@ -271,14 +272,26 @@ var gameModule = (function() {
         // game pause and live event listener
         $("#pauseGame").off("click").on("click", function(e) {
             e.stopImmediatePropagation();
+            $("#gamePauseModal").slideDown();
             $(this).toggleClass("pause live");
-            if($(this).hasClass("live")) {
-                timer.pauseTimer();
-                $(document).off("click", throwPerl);
-            } else {
-                $(document).one("click", throwPerl);
-                timer.startTimer();
-            }
+            timer.pauseTimer();
+            $(document).off("click", throwPerl);
+        });
+
+        // resume game button event listener
+        $("#resumeGame").off("click").on("click", function(e){
+            e.stopImmediatePropagation();
+            $("#gamePauseModal").slideUp();
+            $(document).one("click", throwPerl);
+            timer.startTimer();
+            $("#pauseGame").toggleClass("pause live");
+        });
+
+        // this event listener for exiting game
+        $("#exitFromGame").off("click").on("click", function(e){
+            e.stopImmediatePropagation();
+            $("#gamePauseModal").slideUp();
+            endGame();
         });
 
         // pearl placement as per game level

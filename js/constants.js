@@ -85,8 +85,8 @@ var constants = (function() {
                     if(mapObj.stat) {
                         savedObj.stat.push(mapObj.stat);
                         // sorting stat array
-                        savedObj.stat.sort(function(obj1, obj2){
-                            if(+obj1["coins"] != +obj2["coins"]) {
+                        savedObj.stat.sort(function (obj1, obj2) {
+                            if (+obj1["coins"] != +obj2["coins"]) {
                                 if(+obj1["coins"] > +obj2["coins"]) return -1;
                                 else return 1;
                             } else {

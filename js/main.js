@@ -1,4 +1,10 @@
-(function(){
+(function () {
+
+    'use strict';
+
+    // need sound related code optimization
+    // need to implement get more life
+    // need to implement timed mode
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();
