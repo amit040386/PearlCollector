@@ -2,9 +2,9 @@
 
     'use strict';
 
-    // need sound related code optimization
     // need to implement get more life
     // need to implement timed mode
+    // need to check for large devices like tablet
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();
@@ -13,36 +13,36 @@
     if (buzz.isMP3Supported()) {
         // creating menu background sound effect
         constants.backSound = new buzz.sound("./sound/background.mp3",{
-            preload: true,
+            preload: false,
             loop: true
         });
 
         // creating cheering sound effect
         constants.cheerSound = new buzz.sound("./sound/cheer.mp3",{
-            preload: true
+            preload: false
         });
 
         // creating pearl broken sound effect
         constants.brokenSound = new buzz.sound("./sound/broken.mp3",{
-            preload: true
+            preload: false
         });
 
         // creating water tapping sound effect
         constants.tapSound = new buzz.sound("./sound/tap.mp3",{
-            preload: true
+            preload: false
         });
 
         // creating water flowing sound effect
         constants.waterSound = new buzz.sound("./sound/water.mp3",{
             loop: true,
-            preload: true
+            preload: false
         });
         constants.waterSound.setVolume(5);
 
         // creating water bubble sound effect
         constants.bubbleSound = new buzz.sound("./sound/bubble.mp3",{
             loop: true,
-            preload: true
+            preload: false
         });
         constants.bubbleSound.setVolume(10);
     } else {
