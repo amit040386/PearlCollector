@@ -31,8 +31,10 @@ var menuModule = (function(){
             if($(".selected-mode").hasClass("classic-mode")) {
                 $("#gameDiffSelection").fadeIn();
                 $("#playGame").fadeOut();
+                constants.GAME_MODE = 0;
             } else {
-                $("#main").load("./views/game-view.html", function() {
+                    constants.GAME_MODE = 1;
+                    $("#main").load("./views/game-view.html", function() {
                     constants.GAME_DIFFICULTY_LEVEL = 2;
                     gameModule.startGame();
                 });
@@ -76,6 +78,22 @@ var menuModule = (function(){
         // game statistics modal opening event listener
         $("#stat").off("click").on("click", function(){
            $("#gameStat").slideDown();
+            var data = constants.getFromStorage();
+            if(data.stat && data.stat.length > 0) {
+                var mode, html = "", difficulty, temp;
+                data.stat.forEach(function(obj, index){
+                    temp = obj["mode"].split("_");
+                    mode = '<span data-localize="'+constants.GAME_MODES[(+temp[0])]+'"></span>&nbsp;';
+                    difficulty = '<span data-localize="'+constants.GAME_DIFFICULTY_LEVELS[(+temp[1]-1)]+'"></span>';
+                    html += "<tr>"+
+                                "<td style='width:25%;'>"+obj["coins"]+"</td>"+
+                                "<td style='width:40%;'>"+mode+difficulty+"</td>"+
+                                "<td style='width:35%;'>"+obj["time"]+"</td>"+
+                           "</tr>";
+                });
+                $("#statTable").html(html);
+                constants.changeText($("#statTable"));
+            }
         });
 
         // exit stat modal event listener

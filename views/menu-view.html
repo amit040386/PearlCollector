@@ -112,12 +112,16 @@
         <div class="table">
             <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
-                    <th style="width: 33.3%" data-localize="MENU.COIN"></th>
-                    <th style="width: 33.3%" data-localize="MENU.DIFFICULTY"></th>
-                    <th style="width: 33.3%" data-localize="MENU.TIME"></th>
+                    <th style="width: 25%" data-localize="MENU.COIN"></th>
+                    <th style="width: 40%" data-localize="MENU.DIFFICULTY"></th>
+                    <th style="width: 35%" data-localize="MENU.TIME"></th>
                 </thead>
             </table>
-            <table cellpadding="0" cellspacing="0" border="0"></table>
+            <table cellpadding="0" cellspacing="0" border="0" id="statTable">
+                <tr>
+                    <td colspan="3" data-localize="NO_DATA"></td>
+                </tr>
+            </table>
         </div>
         <div class="btn-section">
             <button id="exitStat"  data-localize="EXIT"></button>

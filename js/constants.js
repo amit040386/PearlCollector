@@ -32,10 +32,13 @@ var constants = (function() {
 
     return {
         GAME_LEVEL: 1,
+        GAME_MODES: ["MENU.CLASSIC_MODE","MENU.TIMED_MODE"],
         GAME_POINT: 0,
         TOTAL_POINT: 0,
         GAME_BONUS_POINT: 5,
+        GAME_MODE: 0,
         GAME_DIFFICULTY_LEVEL: 1,
+        GAME_DIFFICULTY_LEVELS: ["EASY","HARD"],
         BOWL_LEVEL: 1,
         PERL_RADIUS: 12.5,
         PERL_DIAMETER: 25,
@@ -50,8 +53,14 @@ var constants = (function() {
             return new timer();
         },
         changeText: function(elem, txt) {
-            $(elem).data("localize",txt);
-            $(elem).localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
+            if(txt) {
+                $(elem).data("localize",txt);
+            }
+            if($(elem).is("[data-localize]")) {
+                $(elem).localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
+            } else {
+                $(elem).find("[data-localize]").localize(constants.LANG_PATH, { language: constants.SELECTED_LANG });
+            }
         },
         backSound: null,
         brokenSound: null,

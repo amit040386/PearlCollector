@@ -16,6 +16,7 @@
     "CONTINUE": "Continue",
     "EASY":"Easy",
     "HARD":"Hard",
+    "NO_DATA":"No data to display",
     "MENU": {
         "GAME_1":"Pearl",
         "GAME_2":"Collector",

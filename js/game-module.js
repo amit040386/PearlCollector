@@ -322,7 +322,7 @@ var gameModule = (function() {
             point: constants.TOTAL_POINT,
             stat: {
                 coins: constants.GAME_POINT,
-                difficulty: constants.GAME_DIFFICULTY_LEVEL,
+                mode: constants.GAME_MODE+"_"+constants.GAME_DIFFICULTY_LEVEL,
                 time: $("#timeSection").text()
             }
         });

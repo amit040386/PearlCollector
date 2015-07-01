@@ -16,6 +16,7 @@
     "CONTINUE": "Voortzetten",
     "EASY":"Makkelijk",
     "HARD":"Hard",
+    "NO_DATA":"Geen gegevens om te tonen",
     "MENU": {
         "GAME_1":"Parel",
         "GAME_2":"Verzamelaar",
