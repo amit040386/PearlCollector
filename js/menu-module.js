@@ -89,8 +89,8 @@ var menuModule = (function(){
                     difficulty = '<span data-localize="'+constants.GAME_DIFFICULTY_LEVELS[(+temp[1]-1)]+'"></span>';
                     html += "<tr>"+
                                 "<td style='width:25%;'>"+obj["coins"]+"</td>"+
-                                "<td style='width:40%;'>"+mode+difficulty+"</td>"+
                                 "<td style='width:35%;'>"+obj["time"]+"</td>"+
+                                "<td style='width:40%;'>"+mode+difficulty+"</td>"+
                            "</tr>";
                 });
                 $("#statTable").html(html);

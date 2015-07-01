@@ -291,7 +291,7 @@ var gameModule = (function() {
         $("#exitFromGame").off("click").on("click", function(e){
             e.stopImmediatePropagation();
             $("#gamePauseModal").slideUp();
-            endGame();
+            endGame(true);
         });
 
         // pearl placement as per game level
@@ -335,18 +335,20 @@ var gameModule = (function() {
     }
 
     // this is public function for ending game
-    function endGame() {
+    function endGame(isNoSaveRequired) {
         timer.stopTimer();
         // this is updating total point
         constants.TOTAL_POINT += constants.GAME_POINT;
-        constants.saveToStorage({
-            point: constants.TOTAL_POINT,
-            stat: {
-                coins: constants.GAME_POINT,
-                mode: constants.GAME_MODE+"_"+constants.GAME_DIFFICULTY_LEVEL,
-                time: $("#timeSection").text()
-            }
-        });
+        if(isNoSaveRequired === undefined) {
+            constants.saveToStorage({
+                point: constants.TOTAL_POINT,
+                stat: {
+                    coins: constants.GAME_POINT,
+                    mode: constants.GAME_MODE+"_"+constants.GAME_DIFFICULTY_LEVEL,
+                    time: $("#timeSection").text()
+                }
+            });
+        }
         $(document).off("click", throwPerl);
         constants.waterSound.stop();
         constants.bubbleSound.stop();
@@ -355,8 +357,6 @@ var gameModule = (function() {
         });
         $(".perl","body").remove();
     }
-
-    //now endGame() will be called if user click on back btn
 
     // this is for displaying game failed popup
     function gameFailed() {

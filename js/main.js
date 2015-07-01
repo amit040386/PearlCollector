@@ -5,6 +5,7 @@
     // need to implement get more life
     // need to implement timed mode
     // need to check for large devices like tablet
+    //now endGame() will be called if user click on back btn
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();

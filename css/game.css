@@ -396,7 +396,7 @@ button:active {
     background-image: url("images/play.png");
 }
 .game-pause-modal {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 999999;
 }
 .game-pause-modal > div {
