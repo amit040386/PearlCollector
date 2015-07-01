@@ -84,6 +84,20 @@ var constants = (function() {
                     var savedObj = JSON.parse(localStorage.getItem("pearlCollector"));
                     if(mapObj.stat) {
                         savedObj.stat.push(mapObj.stat);
+                        // sorting stat array
+                        savedObj.stat.sort(function(obj1, obj2){
+                            if(+obj1["coins"] != +obj2["coins"]) {
+                                if(+obj1["coins"] > +obj2["coins"]) return -1;
+                                else return 1;
+                            } else {
+                                if(obj1["time"] > obj2["time"]) return -1;
+                                else return 1;
+                            }
+                        });
+                        // if stat data are more than 50 records then older records are deleted
+                        if(savedObj.stat.length > 50) {
+                            savedObj.stat.splice(-1, 1);
+                        }
                         delete mapObj.stat;
                     }
                     $.extend(true, savedObj, mapObj);

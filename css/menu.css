@@ -315,6 +315,15 @@ body {
 .stat-section table tbody tr:nth-child(even) > td {
     background: #dfdfdf;
 }
+.stat-section table tbody tr:first-child > td {
+    background: #08DC8D;
+}
+.stat-section table tbody tr:nth-child(2) > td {
+    background: #59E0AE;
+}
+.stat-section table tbody tr:nth-child(3) > td {
+    background: #9AE5C9;
+}
 .btn-section, .help-section h1 {
     position: fixed;
     bottom: 0px;

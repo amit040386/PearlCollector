@@ -50,85 +50,88 @@ var gameModule = (function() {
             $perlEle = $containerBowl.children(".perl"+tempPerlIndex);
         }
 
-        // detaching perl once it is thrown and applying top and left values for the same
-        var perlPos = $perlEle.offset();
-        $perlEle.appendTo("body").css({
-            bottom: (windowHeight-perlPos.top),
-            left: perlPos.left,
-            position: "fixed"
-        });
+        if($perlEle) {
+            // detaching perl once it is thrown and applying top and left values for the same
+            var perlPos = $perlEle.offset();
+            $perlEle.appendTo("body").css({
+                bottom: (windowHeight-perlPos.top),
+                left: perlPos.left,
+                position: "fixed"
+            });
 
-        // perl throwing animation attachment with velocity
-        $perlEle.velocity({
-            bottom: throwHeight,
-            left: perlPos.left
-        }, {
-            duration: 600,
-            easing: "easeOutQuad"
-        }).velocity({
-            bottom: bottomPos,
-            left: perlPos.left
-        }, {
-            duration: 600,
-            easing: "easeInQuad",
-            progress: function(element, complete, remaining, start, tweenValue) {
-                var perlPos = $perlEle.offset(), bowl1Pos = $bowl.offset();
+            // perl throwing animation attachment with velocity
+            $perlEle.velocity({
+                bottom: throwHeight,
+                left: perlPos.left
+            }, {
+                duration: 600,
+                easing: "easeOutQuad"
+            }).velocity({
+                bottom: bottomPos,
+                left: perlPos.left
+            }, {
+                duration: 600,
+                easing: "easeInQuad",
+                progress: function(element, complete, remaining, start, tweenValue) {
+                    var perlPos = $perlEle.offset(), bowl1Pos = $bowl.offset();
 
-                // every time it is checked whether it is dropped inside bowl during downfall
-                if(perlPos.top >= bowl1Pos.top
-                   && (perlPos.top+constants.PERL_DIAMETER) <= (bowl1Pos.top+constants.BOWL_HEIGHT)
-                   && perlPos.left >= bowl1Pos.left
-                   && (perlPos.left+constants.PERL_DIAMETER) <= (bowl1Pos.left+constants.BOWL_WIDTH)) {
+                    // every time it is checked whether it is dropped inside bowl during downfall
+                    if(perlPos.top >= bowl1Pos.top
+                        && (perlPos.top+constants.PERL_DIAMETER) <= (bowl1Pos.top+constants.BOWL_HEIGHT)
+                        && perlPos.left >= bowl1Pos.left
+                        && (perlPos.left+constants.PERL_DIAMETER) <= (bowl1Pos.left+constants.BOWL_WIDTH)) {
 
-                    $perlEle.velocity("finish");
-                    constants.PERL_COLLECTED = true;
-                }
-            },
-            complete: function() {
-                calculatePoints();
-                // if bowl is collected perl
-                if(constants.PERL_COLLECTED) {
-                    $perlEle.removeAttr("style");
-                    $perlEle.appendTo($bowl);
-
-                    // after collecting all perls bowl level will be increased
-                    if($bowl.children(".perl").length === 3 ||
-                       ($containerBowl && $containerBowl.children(".perl").length === 0 &&
-                           $(".perl").parent(".bowl").length > 0)) {
-
-                        constants.BOWL_LEVEL++;
+                        $perlEle.velocity("finish");
+                        constants.PERL_COLLECTED = true;
                     }
-                    constants.PERL_COLLECTED = false;
+                },
+                complete: function() {
+                    calculatePoints();
+                    // if bowl is collected perl
+                    if(constants.PERL_COLLECTED) {
+                        $perlEle.removeAttr("style");
+                        $perlEle.appendTo($bowl);
 
-                    // after completing all 4 bowl collection, level will be increased
-                    verifyLevelIncrease();
-                } else {
-                    constants.brokenSound.play();
-                    if(constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL === 1) {
-                        $perlEle.appendTo($("#level"+constants.GAME_LEVEL+" .perl-section"));
-                    }
-                    // pearl will be fell down in bowl level more than 1
-                    if(constants.GAME_LEVEL > 1 || (constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL > 1)) {
-
-                        // if all 3 perls are wasted then game is over
-                        if($("body").children(".perl").length === 3) {
-                            gameFailed();
-                        }
-                        // if any one pearl is kept in bowl then level will be increased to continue the game
-                        else if($containerBowl.children(".perl").length === 0 &&
-                            $(".perl").parent(".bowl").length > 0) {
+                        // after collecting all perls bowl level will be increased
+                        if($bowl.children(".perl").length === 3 ||
+                            ($containerBowl && $containerBowl.children(".perl").length === 0 &&
+                                $(".perl").parent(".bowl").length > 0)) {
 
                             constants.BOWL_LEVEL++;
+                        }
+                        constants.PERL_COLLECTED = false;
 
-                            // after completing all 4 bowl collection, level will be increased
-                            verifyLevelIncrease();
+                        // after completing all 4 bowl collection, level will be increased
+                        verifyLevelIncrease();
+                    } else {
+                        constants.brokenSound.play();
+                        if(constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL === 1) {
+                            $perlEle.appendTo($("#level"+constants.GAME_LEVEL+" .perl-section"));
+                        }
+                        // pearl will be fell down in bowl level more than 1
+                        if(constants.GAME_LEVEL > 1 || (constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL > 1)) {
+
+                            // if all 3 perls are wasted then game is over
+                            if($("body").children(".perl").length === 3) {
+                                gameFailed();
+                            }
+                            // if any one pearl is kept in bowl then level will be increased to continue the game
+                            else if($containerBowl.children(".perl").length === 0 &&
+                                $(".perl").parent(".bowl").length > 0) {
+
+                                constants.BOWL_LEVEL++;
+
+                                // after completing all 4 bowl collection, level will be increased
+                                verifyLevelIncrease();
+                            }
                         }
                     }
+                    // attaching click event again to throw the perl for the next time
+                    $(document).one("click", throwPerl);
                 }
-                // attaching click event again to throw the perl for the next time
-                $(document).one("click", throwPerl);
-            }
-        });
+            });
+        }
+
     }
 
     // this function is checking after completing all 4 bowl collection, level will be increased
@@ -145,6 +148,9 @@ var gameModule = (function() {
 
     // this is for displaying next level
     function displayNextLevel(bonusPoints) {
+
+        $(document).off("click", throwPerl);
+
         // timer is paused
         timer.pauseTimer();
 
@@ -178,6 +184,8 @@ var gameModule = (function() {
                 e.stopImmediatePropagation();
                 $("#bonusSection").hide();
                 timer.startTimer();
+
+                $(document).one("click", throwPerl);
 
                 var $newLevel = $("#level"+constants.GAME_LEVEL),
                     $prevLevel = $("#level"+(constants.GAME_LEVEL-1));
@@ -339,6 +347,7 @@ var gameModule = (function() {
 
     // this is for displaying game failed popup
     function gameFailed() {
+        $(document).off("click", throwPerl);
         timer.stopTimer();
         $("#gameFailedSection").show();
         $("#finalPoints").text(constants.GAME_POINT);
