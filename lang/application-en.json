@@ -5,7 +5,8 @@
         "HEADER": "Congratulations !!!",
         "GAINED": "You gained ",
         "BONUS": "bonus ",
-        "GAINED_TOTAL": "You gained total "
+        "GAINED_TOTAL": "You gained total ",
+        "ADD_LIFE_TIP":"Click to get life"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Not this time",

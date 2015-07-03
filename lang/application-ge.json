@@ -5,7 +5,8 @@
         "HEADER": "Herzlichen Glückwunsch !!!",
         "GAINED": "Sie gewonnen ",
         "BONUS": "bonus ",
-        "GAINED_TOTAL": "Sie gewann insgesamt "
+        "GAINED_TOTAL": "Sie gewann insgesamt ",
+        "ADD_LIFE_TIP":"Klicken Sie hier um das Leben zu erhalten"
     },
     "FAILED": {
         "HEADER": "Es Tut Uns Leid !!! Diesmal nicht",

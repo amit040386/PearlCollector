@@ -5,7 +5,8 @@
         "HEADER": "Gefeliciteerd !!!",
         "GAINED": "Ge opgedaan ",
         "BONUS": "bonus ",
-        "GAINED_TOTAL": "U kreeg totaal "
+        "GAINED_TOTAL": "U kreeg totaal ",
+        "ADD_LIFE_TIP":"Klik om leven te krijgen"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Deze keer niet",
