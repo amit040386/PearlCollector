@@ -4,7 +4,7 @@ var constants = (function() {
     // this is timer function
     function timer() {
         // if it is timed mode then 3min time is given
-        var timeTicker, $this = this, ticker = ((constants.GAME_MODE === 0) ? 0 : 15000/*180000*/);
+        var timeTicker, $this = this, ticker = ((constants.GAME_MODE === 0) ? 0 : 180000);
 
         // for starting timer
         $this.startTimer = function() {
