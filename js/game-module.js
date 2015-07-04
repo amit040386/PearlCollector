@@ -114,7 +114,7 @@ var gameModule = (function() {
                         if(constants.GAME_LEVEL > 1 || (constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL > 1)) {
 
                             // if there is no life and user missed to collect the pearl then tooltip will be shown
-                            if(constants.FREE_LIVES === 0 && $("body").children(".perl").length < 3) {
+                            if(constants.FREE_LIVES === 0 && $("body").children(".perl").length < 3 && constants.TOTAL_POINT >= 50) {
                                 $("#tooltip").fadeIn().css("display","block").delay(2000).fadeOut();
                             }
 
@@ -157,9 +157,7 @@ var gameModule = (function() {
     function displayNextLevel(bonusPoints) {
 
         $(document).off("click", throwPerl);
-
-        // timer is paused
-        timer.pauseTimer();
+        deactivateEventListener();
 
         // displaying bonus points
         $("#bonusVal").text(bonusPoints);
@@ -190,7 +188,6 @@ var gameModule = (function() {
             $("#continueGame").off("click").on("click", function(e){
                 e.stopImmediatePropagation();
                 $("#bonusSection").hide();
-                timer.startTimer();
 
                 $(document).one("click", throwPerl);
 
@@ -201,6 +198,7 @@ var gameModule = (function() {
                 $prevLevel.addClass("level-exit");
                 setTimeout(function() {
                     $prevLevel.hide();
+                    activateEventListener();
                 },1000);
                 $(".bowl:last .perl",$prevLevel).appendTo($("#level"+constants.GAME_LEVEL+" .bowl"+(constants.BOWL_LEVEL-1)));
             });
@@ -264,32 +262,32 @@ var gameModule = (function() {
         }
     }
 
+    // this is pause game listener
+    function pauseGameListener(e) {
+        e.stopImmediatePropagation();
+        deactivateEventListener();
+        $("#gamePauseModal").slideDown();
+        $(this).toggleClass("pause live");
+        $(document).off("click", throwPerl);
+    }
+
     // this is a public function for starting game
     function startGame() {
         // setting localized languages
         constants.setLang();
-
+        $("#totalGamePoints").text(constants.TOTAL_POINT);
         constants.waterSound.play();
         constants.bubbleSound.play();
 
         // resting values before starting the game
         resetGame();
 
-        // game pause and live event listener
-        $("#pauseGame").off("click").on("click", function(e) {
-            e.stopImmediatePropagation();
-            $("#gamePauseModal").slideDown();
-            $(this).toggleClass("pause live");
-            timer.pauseTimer();
-            $(document).off("click", throwPerl);
-        });
-
         // resume game button event listener
         $("#resumeGame").off("click").on("click", function(e){
             e.stopImmediatePropagation();
             $("#gamePauseModal").slideUp();
             $(document).one("click", throwPerl);
-            timer.startTimer();
+            activateEventListener();
             $("#pauseGame").toggleClass("pause live");
         });
 
@@ -309,8 +307,34 @@ var gameModule = (function() {
 
         // event binding for throwing perl for one time
         $(document).one("click", throwPerl);
-        $("#freeLiveSection").parent().off("click").on("click",addLife);
+        activateEventListener();
+    }
+
+    // this function will redeem life
+    function redeemLife() {
+        var $bowl = $("#level"+constants.GAME_LEVEL+" .bowl"+constants.LAST_BOWL_LEVEL);
+
+        // decrease the bowl level after reverting the perl
+        if((constants.BOWL_LEVEL-1) > constants.LAST_BOWL_LEVEL) {
+            constants.BOWL_LEVEL--;
+        }
+
+        // reverting dropped perl and appended to bowl again
+        $("body > .perl:first").appendTo($bowl).removeAttr("style");
+    }
+
+    // this function will activate all event listener
+    function activateEventListener() {
         timer.startTimer();
+        $("#pauseGame").on("click", pauseGameListener);
+        $("#freeLiveSection").parent().on("click",addLife);
+    }
+
+    // this function will deactivate all event listener
+    function deactivateEventListener() {
+        timer.pauseTimer();
+        $("#pauseGame").off("click");
+        $("#freeLiveSection").parent().off("click");
     }
 
     // this is for adding life after failure
@@ -323,25 +347,49 @@ var gameModule = (function() {
                 // decreasing free lives
                 constants.FREE_LIVES--;
                 $("#freeLiveSection").text(constants.FREE_LIVES);
-                var $bowl = $("#level"+constants.GAME_LEVEL+" .bowl"+constants.LAST_BOWL_LEVEL);
-
-                // decrease the bowl level after reverting the perl
-                if((constants.BOWL_LEVEL-1) > constants.LAST_BOWL_LEVEL) {
-                    constants.BOWL_LEVEL--;
-                }
-
-                // reverting dropped perl and appended to bowl again
-                $("body > .perl:first").appendTo($bowl).removeAttr("style");
+                redeemLife();
             }
             // else it will ask for buying free lives with the cost of earned coins
             else {
+                // if total points are available more than 50 then only user can avail extra life
+                if(constants.TOTAL_POINT >= 50) {
+                    $("#totalGamePoints").text(constants.TOTAL_POINT);
+                    $(document).off("click", throwPerl);
+                    deactivateEventListener();
+                    $("#addLifeConfirmation").show();
 
+                    // this event listener for closing add life confirmation modal
+                    $("#closeAddLifeModal").one("click", function(e) {
+                        e.stopImmediatePropagation();
+                        $(document).one("click", throwPerl);
+                        activateEventListener();
+                        $("#addLifeConfirmation").hide();
+                    });
+
+                    // this event listener for adding extra life
+                    $("#confirmAddLife").one("click", function(e) {
+                        e.stopImmediatePropagation();
+                        $(document).one("click", throwPerl);
+                        activateEventListener();
+                        constants.TOTAL_POINT -= 50;
+                        constants.saveToStorage({
+                            point: constants.TOTAL_POINT
+                        });
+                        $("#addLifeConfirmation").hide();
+                        redeemLife();
+                    });
+                }
+                // otherwise no points available msg tooltip will be displayed
+                else {
+                    $("#noPointTooltip").fadeIn().css("display","block").delay(2000).fadeOut();
+                }
             }
         }
     }
 
     // this is public function for ending game
     function endGame(isNoSaveRequired) {
+        deactivateEventListener();
         timer.stopTimer();
         // this is updating total point
         constants.TOTAL_POINT += constants.GAME_POINT;
@@ -366,6 +414,7 @@ var gameModule = (function() {
 
     // this is for displaying game failed popup
     function gameFailed() {
+        deactivateEventListener();
         $(document).off("click", throwPerl);
         timer.stopTimer();
         $("#gameFailedSection").show();

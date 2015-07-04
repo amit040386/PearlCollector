@@ -183,12 +183,23 @@
 .bonus-section > div:nth-child(3), .bonus-section > div:nth-child(4), .game-failed-section > div:nth-child(2) {
     font-size: 12px;
 }
-.bonus-section > div:nth-child(3) span, .bonus-section > div:nth-child(4) span, .game-failed-section > div:nth-child(3) span {
+.bonus-section > div:nth-child(3) span,
+.bonus-section > div:nth-child(4) span,
+.game-failed-section > div:nth-child(3) span,
+.add-life-confirm-section > div:first-child span {
     display: inline-block;
     vertical-align: middle;
     letter-spacing: 1px;
 }
-.bonus-section, .game-failed-section {
+.add-life-confirm-section > div:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px auto;
+}
+.add-life-confirm-section > div:nth-child(2), .add-life-confirm-section > div:nth-child(3) {
+    margin: 10px auto;
+}
+.bonus-section, .game-failed-section, .add-life-confirm-section {
     position: fixed;
     width: 90%;
     margin: auto;
@@ -274,7 +285,7 @@
         -webkit-transform: translateY(0%) scaleX(1);
     }
 }
-.bonus-section .coins, .game-failed-section .coins {
+.bonus-section .coins, .game-failed-section .coins, .add-life-confirm-section .coins {
     -webkit-animation: rotate 1s linear infinite alternate;
     -moz-animation: rotate 1s linear infinite alternate;
     animation: rotate 1s linear infinite alternate;
@@ -299,7 +310,7 @@
         -webkit-transform: rotateY(180deg);
     }
 }
-.bonus-section .bonus-btn-section, .game-failed-section .game-failed-btn-section {
+.bonus-section .bonus-btn-section, .game-failed-section .game-failed-btn-section, .add-life-confirm-section .add-life-btn-section {
     position: absolute;
     bottom: 10px;
     width: 100%;
@@ -327,11 +338,11 @@ button:active {
     box-shadow: 0 1px #27496d;
     transform: translateY(3px);
 }
-.bonus-section .bonus-btn-section > button:first-child {
+.bonus-section .bonus-btn-section > button:first-child, .add-life-btn-section > button:first-child {
     float: left;
     margin-left: 10px;
 }
-.bonus-section .bonus-btn-section > button:last-child {
+.bonus-section .bonus-btn-section > button:last-child, .add-life-btn-section > button:last-child {
     float: right;
     margin-right: 10px;
 }

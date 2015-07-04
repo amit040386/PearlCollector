@@ -5,9 +5,8 @@
     // need to implement get more life
     // need to implement timed mode
     // need to check for large devices like tablet
-    //now endGame() will be called if user click on back btn
+    // now endGame() will be called if user click on back btn
     // convert pixel px to em.
-    // get more life tooltip should be shown after getting free life as 0
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();
