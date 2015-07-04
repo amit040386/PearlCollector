@@ -6,7 +6,10 @@
         "GAINED": "You gained ",
         "BONUS": "bonus ",
         "GAINED_TOTAL": "You gained total ",
-        "ADD_LIFE_TIP":"Click to get life"
+        "ADD_LIFE_TIP":"Click to get life",
+        "NO_POINT":"No points available",
+        "ADD_LIFE_INFO":"50 coins will be deducted from your earning",
+        "ADD_LIFE_CONFIRMATION":"Do you want to proceed?"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Not this time",

@@ -6,7 +6,10 @@
         "GAINED": "Usted ganó ",
         "BONUS": "prima ",
         "GAINED_TOTAL": "Usted ganó totales ",
-        "ADD_LIFE_TIP":"Haga clic aquí para obtener la vida"
+        "ADD_LIFE_TIP":"Haga clic aquí para obtener la vida",
+        "NO_POINT":"No hay puntos disponibles",
+        "ADD_LIFE_INFO":"50 monedas serán deducidos de su ganancia",
+        "ADD_LIFE_CONFIRMATION":"Quieres proceder?"
     },
     "FAILED": {
         "HEADER": "Apenado !!! No esta vez",

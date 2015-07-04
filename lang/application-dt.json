@@ -6,7 +6,10 @@
         "GAINED": "Ge opgedaan ",
         "BONUS": "bonus ",
         "GAINED_TOTAL": "U kreeg totaal ",
-        "ADD_LIFE_TIP":"Klik om leven te krijgen"
+        "ADD_LIFE_TIP":"Klik om leven te krijgen",
+        "NO_POINT":"Geen punten beschikbaar",
+        "ADD_LIFE_INFO":"50 munten zal worden afgetrokken van uw verdiencapaciteit",
+        "ADD_LIFE_CONFIRMATION":"Wilt u doorgaan?"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Deze keer niet",
