@@ -106,11 +106,17 @@ var gameModule = (function() {
                         verifyLevelIncrease();
                     } else {
                         constants.brokenSound.play();
+
                         if(constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL === 1) {
                             $perlEle.appendTo($("#level"+constants.GAME_LEVEL+" .perl-section"));
                         }
                         // pearl will be fell down in bowl level more than 1
                         if(constants.GAME_LEVEL > 1 || (constants.GAME_LEVEL === 1 && constants.BOWL_LEVEL > 1)) {
+
+                            // if there is no life and user missed to collect the pearl then tooltip will be shown
+                            if(constants.FREE_LIVES === 0 && $("body").children(".perl").length < 3) {
+                                $("#tooltip").fadeIn().css("display","block").delay(2000).fadeOut();
+                            }
 
                             // if all 3 perls are wasted then game is over
                             if($("body").children(".perl").length === 3) {
