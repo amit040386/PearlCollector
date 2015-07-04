@@ -3,29 +3,40 @@ var constants = (function() {
 
     // this is timer function
     function timer() {
-        var timeTicker, ticker = 0;
+        // if it is timed mode then 3min time is given
+        var timeTicker, $this = this, ticker = ((constants.GAME_MODE === 0) ? 0 : 15000/*180000*/);
 
         // for starting timer
-        this.startTimer = function() {
+        $this.startTimer = function() {
             timeTicker = setInterval(function(){
-                ticker += 1000;
+                if(constants.GAME_MODE === 0) {
+                    ticker += 1000;
+                } else {
+                    ticker -= 1000;
+                }
+
                 var seconds = Math.floor((ticker / 1000) % 60);
                 var minutes = Math.floor((ticker / (60 * 1000)) % 60);
                 $("#timeSection").text(((minutes < 10) ? "0" : "")+ minutes + ":" + ((seconds < 10) ? "0" : "")+ seconds);
-                if(minutes >= 60) {
-                    this.stopTimer();
+
+                if(constants.GAME_MODE === 0 && minutes >= 60) {
+                   $this.stopTimer();
+                    constants.IS_GAME_END = true;
+                } else if(constants.GAME_MODE === 1 && ticker === 0) {
+                    $this.stopTimer();
+                    constants.IS_GAME_END = true;
                 }
             },1000);
         };
 
         // for stopping timer
-        this.stopTimer = function() {
+        $this.stopTimer = function() {
             ticker = 0;
             clearInterval(timeTicker);
         };
 
         // for pausing timer
-        this.pauseTimer = function() {
+        $this.pauseTimer = function() {
             clearInterval(timeTicker);
         };
     }
@@ -45,6 +56,7 @@ var constants = (function() {
         BOWL_HEIGHT: 50,
         BOWL_WIDTH: 70,
         FREE_LIVES: 3,
+        IS_GAME_END: false,
         PERL_COLLECTED: false,
         LAST_BOWL_LEVEL: 1,
         LANG_PATH: "lang/application",

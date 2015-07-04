@@ -1,7 +1,7 @@
 <!-- this is main game section -->
 <div id="gameSection" class="game-section">
 
-    <!-- this is level upgrading display modaal section -->
+    <!-- this is level upgrading display modal section -->
     <div id="bonusSection" class="bonus-section">
         <div data-localize="BONUS.HEADER"></div>
         <div id="levelInfo" data-localize="BONUS.INFO"></div>
@@ -20,6 +20,21 @@
         <div class="bonus-btn-section">
             <button id="exitGame" data-localize="EXIT"></button>
             <button id="continueGame" data-localize="CONTINUE"></button>
+        </div>
+    </div>
+
+    <!-- this is timed out modal section -->
+    <div id="gameTimeOutModal" class="time-out-modal">
+        <div data-localize="BONUS.TIME_OUT"></div>
+        <div data-localize="BONUS.GAME_OVER"></div>
+        <div class="margin-top-10">
+            <span data-localize="BONUS.GAINED_TOTAL"></span>
+            <span id="totalPoints">0</span>
+            <span> </span>
+            <span class="coins"></span>
+        </div>
+        <div class="time-out-btn-section">
+            <button id="exitTimedOutGame" data-localize="EXIT"></button>
         </div>
     </div>
 

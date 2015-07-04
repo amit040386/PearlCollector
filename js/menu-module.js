@@ -55,6 +55,8 @@ var menuModule = (function(){
         $(".mode").off("click").on("click", function(){
             $(".mode").removeClass("selected-mode");
             $(this).addClass("selected-mode");
+            $("#playGame").fadeIn();
+            $("#gameDiffSelection").fadeOut();
         });
 
         // select language event listener

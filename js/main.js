@@ -2,8 +2,6 @@
 
     'use strict';
 
-    // need to implement get more life
-    // need to implement timed mode
     // need to check for large devices like tablet
     // now endGame() will be called if user click on back btn
     // convert pixel px to em.

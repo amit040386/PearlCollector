@@ -9,7 +9,9 @@
         "ADD_LIFE_TIP":"Klicken Sie hier um das Leben zu erhalten",
         "NO_POINT":"Keine Punkte verfügbar",
         "ADD_LIFE_INFO":"50 Münzen werden von Ihrem Erwerbs abgezogen",
-        "ADD_LIFE_CONFIRMATION":"Möchten Sie fortfahren?"
+        "ADD_LIFE_CONFIRMATION":"Möchten Sie fortfahren?",
+        "TIME_OUT":"Auszeit",
+        "GAME_OVER":"Das Spiel ist aus"
     },
     "FAILED": {
         "HEADER": "Es Tut Uns Leid !!! Diesmal nicht",

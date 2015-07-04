@@ -9,7 +9,9 @@
         "ADD_LIFE_TIP":"Haga clic aquí para obtener la vida",
         "NO_POINT":"No hay puntos disponibles",
         "ADD_LIFE_INFO":"50 monedas serán deducidos de su ganancia",
-        "ADD_LIFE_CONFIRMATION":"Quieres proceder?"
+        "ADD_LIFE_CONFIRMATION":"Quieres proceder?",
+        "TIME_OUT":"Tiempo fuera",
+        "GAME_OVER":"El juego ha terminado"
     },
     "FAILED": {
         "HEADER": "Apenado !!! No esta vez",

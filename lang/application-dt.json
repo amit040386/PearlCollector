@@ -9,7 +9,9 @@
         "ADD_LIFE_TIP":"Klik om leven te krijgen",
         "NO_POINT":"Geen punten beschikbaar",
         "ADD_LIFE_INFO":"50 munten zal worden afgetrokken van uw verdiencapaciteit",
-        "ADD_LIFE_CONFIRMATION":"Wilt u doorgaan?"
+        "ADD_LIFE_CONFIRMATION":"Wilt u doorgaan?",
+        "TIME_OUT":"Time out",
+        "GAME_OVER":"Het spel is voorbij"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Deze keer niet",

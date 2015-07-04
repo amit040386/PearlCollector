@@ -9,7 +9,9 @@
         "ADD_LIFE_TIP":"Click to get life",
         "NO_POINT":"No points available",
         "ADD_LIFE_INFO":"50 coins will be deducted from your earning",
-        "ADD_LIFE_CONFIRMATION":"Do you want to proceed?"
+        "ADD_LIFE_CONFIRMATION":"Do you want to proceed?",
+        "TIME_OUT":"Time out",
+        "GAME_OVER":"The game is over"
     },
     "FAILED": {
         "HEADER": "Sorry !!! Not this time",

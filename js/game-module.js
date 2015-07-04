@@ -2,7 +2,7 @@ var gameModule = (function() {
 
     "use strict";
 
-    var timer = constants.getTimer(), windowHeight = $(window).height();
+    var timer, windowHeight = $(window).height();
 
     // this function is for creating water ripple effect on touching anywhere in the body
     function createPinchRipple(evt) {
@@ -161,6 +161,7 @@ var gameModule = (function() {
 
         // displaying bonus points
         $("#bonusVal").text(bonusPoints);
+
         $("#finalTotalPoints").text(constants.GAME_POINT);
 
         $("#exitGame").off("click").on("click", function(e){
@@ -240,14 +241,16 @@ var gameModule = (function() {
         constants.GAME_POINT = 0;
         constants.PERL_COLLECTED = false;
         constants.FREE_LIVES = (3/(constants.GAME_DIFFICULTY_LEVEL/2));
+        constants.IS_GAME_END = false;
 
         // invisible other game levels
         $(".level:not('.level-"+constants.GAME_LEVEL+"')").hide();
 
         // making visible only first level
         $("#level"+constants.GAME_LEVEL).show();
+        $("#totalGamePoints").text(constants.TOTAL_POINT);
         $("#pointSection").text("0");
-        $("#timeSection").text("00:00");
+        $("#timeSection").text(((constants.GAME_MODE === 0) ? "00:00" : "03:00"));
         $("#freeLiveSection").text(constants.FREE_LIVES);
         constants.changeText($("#levelInfo"), "BONUS.INFO");
 
@@ -271,16 +274,37 @@ var gameModule = (function() {
         $(document).off("click", throwPerl);
     }
 
+    // this function is for displaying game time out modal
+    function displayGameEnd() {
+        $(document).off("click", throwPerl);
+        $("#totalPoints").text(constants.GAME_POINT);
+        $("#gameTimeOutModal").show();
+        $("#exitTimedOutGame").one("click", function(e) {
+            e.stopImmediatePropagation();
+            $("#gameTimeOutModal").hide();
+            endGame();
+        });
+    }
+
     // this is a public function for starting game
     function startGame() {
-        // setting localized languages
-        constants.setLang();
-        $("#totalGamePoints").text(constants.TOTAL_POINT);
-        constants.waterSound.play();
-        constants.bubbleSound.play();
-
+        timer = constants.getTimer();
         // resting values before starting the game
         resetGame();
+
+        // game end checker for timed out
+        var endGameChecker = setInterval(function(){
+            if(constants.IS_GAME_END) {
+                deactivateEventListener();
+                displayGameEnd();
+                clearInterval(endGameChecker);
+            }
+        },500);
+
+        // setting localized languages
+        constants.setLang();
+        constants.waterSound.play();
+        constants.bubbleSound.play();
 
         // resume game button event listener
         $("#resumeGame").off("click").on("click", function(e){
@@ -390,7 +414,7 @@ var gameModule = (function() {
     // this is public function for ending game
     function endGame(isNoSaveRequired) {
         deactivateEventListener();
-        timer.stopTimer();
+        constants.IS_GAME_END = false;
         // this is updating total point
         constants.TOTAL_POINT += constants.GAME_POINT;
         if(isNoSaveRequired === undefined) {
