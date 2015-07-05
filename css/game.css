@@ -205,6 +205,7 @@
 .bonus-section, .game-failed-section, .add-life-confirm-section, .time-out-modal {
     position: fixed;
     width: 90%;
+    max-width: 400px;
     margin: auto;
     color: #fff;
     overflow: auto;
