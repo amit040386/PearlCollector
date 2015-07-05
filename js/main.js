@@ -2,9 +2,7 @@
 
     'use strict';
 
-    // need to check for large devices like tablet
     // now endGame() will be called if user click on back btn
-    // convert pixel px to em.
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();

@@ -1,10 +1,6 @@
-.black-font-color {
-    color: #000 !important;
-}
 .game-section, .main, .menu-section, .stat-section, .help-section, .game-pause-modal {
     height: 100%;
     position: absolute;
-    max-width: 720px;
     margin: auto;
     width: 100%;
     overflow: hidden;
@@ -327,29 +323,6 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
-}
-button {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 14px;
-    width: 90px;
-    background-color: #6496c8;
-    border: 0px none;
-    box-shadow: 0 3px #27496d;
-    letter-spacing: 1px;
-    outline: 0px none;
-    color: #fff;
-}
-button:hover {
-    background-color: #417cb8;
-}
-button:focus {
-    border: 0px none;
-}
-button:active {
-    background-color: #417cb8;
-    box-shadow: 0 1px #27496d;
-    transform: translateY(3px);
 }
 .bonus-section .bonus-btn-section > button:first-child,
 .add-life-btn-section > button:first-child {
