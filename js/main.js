@@ -3,6 +3,10 @@
     'use strict';
 
     // now endGame() will be called if user click on back btn
+    // px to em conversion
+    // on game start, background music should be muted
+    // on first level bowl 1, break sound should not be there
+    // in tablet devices, bowls are riunning fast
 
     // this function will save data to local storage if it is not present
     constants.saveToStorage();

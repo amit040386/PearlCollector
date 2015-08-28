@@ -305,6 +305,7 @@ var gameModule = (function() {
         constants.setLang();
         constants.waterSound.play();
         constants.bubbleSound.play();
+        constants.backSound.stop();
 
         // resume game button event listener
         $("#resumeGame").off("click").on("click", function(e){
@@ -430,6 +431,7 @@ var gameModule = (function() {
         $(document).off("click", throwPerl);
         constants.waterSound.stop();
         constants.bubbleSound.stop();
+        constants.backSound.play();
         $("#main").load("./views/menu-view.html", function() {
             menuModule.initMenu();
         });

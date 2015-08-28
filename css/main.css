@@ -5,11 +5,17 @@
     font-weight: bold;
 }
 body {
-    margin: 0px;
+    margin: 0px auto;
     padding: 0px;
     font-family: arial;
     overflow: hidden;
     -webkit-text-size-adjust: none;
+    max-width: 480px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 button {
     padding: 5px;
